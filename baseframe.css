@@ -1,0 +1,29 @@
+/* =========================================================
+   BaseFrame CSS Framework
+   Modular Utility-First Architecture
+   Author: Ali Hassan
+   Version: 1.0.0
+   ========================================================= */
+
+/* ============================================
+   Core Framework Files
+   ============================================ */
+@import url("./css/framework/_variables.css");
+@import url("./css/framework/_color.css");
+
+/* ============================================
+   Utility Modules
+   ============================================ */
+@import url("./css/modules/typography.css");
+@import url("./css/modules/font.css");
+@import url("./css/modules/colors.css");
+@import url("./css/modules/borders-radius.css");
+@import url("./css/modules/shadows-outline-filters.css");
+@import url("./css/modules/transitions-animations.css");
+@import url("./css/modules/backgrounds-clip-mask.css");
+@import url("./css/modules/visibility-scroll-resize.css");
+@import url("./css/modules/accessibility-print.css");
+
+/* =========================================================
+   End of BaseFrame Framework
+   ========================================================= */
