@@ -1,0 +1,113 @@
+/* =========================================================
+   BaseFrame – Color Utilities
+   ---------------------------------------------------------
+   Covers text color, background color, border color,
+   opacity, and contrast adjustments.
+   ========================================================= */
+
+/* ---------- Text Colors ---------- */
+.text-primary, .txt-p { color: var(--color-primary); }
+.text-secondary, .txt-s { color: var(--color-secondary); }
+.text-success, .txt-suc { color: var(--color-success); }
+.text-warning, .txt-w { color: var(--color-warning); }
+.text-danger, .txt-d { color: var(--color-danger); }
+.text-muted, .txt-m { color: var(--color-muted); }
+.text-light, .txt-l { color: var(--color-primary-light); }
+.text-dark, .txt-k { color: var(--color-primary-dark); }
+.text-bg, .txt-bg { color: var(--color-bg); }
+.text-fg, .txt-fg { color: var(--color-fg); }
+.text-inherit, .txt-i { color: inherit; }
+
+/* ---------- Background Colors ---------- */
+.bg-primary, .bg-p { background-color: var(--color-primary); }
+.bg-secondary, .bg-s { background-color: var(--color-secondary); }
+.bg-success, .bg-suc { background-color: var(--color-success); }
+.bg-warning, .bg-w { background-color: var(--color-warning); }
+.bg-danger, .bg-d { background-color: var(--color-danger); }
+.bg-light, .bg-l { background-color: var(--color-primary-light); }
+.bg-dark, .bg-k { background-color: var(--color-primary-dark); }
+.bg-surface, .bg-sf { background-color: var(--color-surface); }
+.bg-none, .bg-n { background-color: transparent; }
+
+/* ---------- Border Colors ---------- */
+.border-primary, .bd-p { border-color: var(--color-primary); }
+.border-secondary, .bd-s { border-color: var(--color-secondary); }
+.border-success, .bd-suc { border-color: var(--color-success); }
+.border-warning, .bd-w { border-color: var(--color-warning); }
+.border-danger, .bd-d { border-color: var(--color-danger); }
+.border-light, .bd-l { border-color: var(--color-primary-light); }
+.border-dark, .bd-k { border-color: var(--color-primary-dark); }
+.border-muted, .bd-m { border-color: var(--color-muted); }
+.border-bg, .bd-bg { border-color: var(--color-bg); }
+.border-fg, .bd-fg { border-color: var(--color-fg); }
+
+/* ---------- Transparent Variants ---------- */
+.text-transparent, .txt-t { color: transparent; }
+.bg-transparent, .bg-t { background-color: transparent; }
+.border-transparent, .bd-t { border-color: transparent; }
+
+/* ---------- Gradient Backgrounds ---------- */
+.bg-gradient-primary, .bg-gp {
+  background: linear-gradient(135deg,
+    var(--color-primary-light),
+    var(--color-primary)
+  );
+}
+.bg-gradient-success, .bg-gs {
+  background: linear-gradient(135deg,
+    var(--color-success-light),
+    var(--color-success)
+  );
+}
+.bg-gradient-danger, .bg-gd {
+  background: linear-gradient(135deg,
+    var(--color-danger-light),
+    var(--color-danger)
+  );
+}
+
+/* ---------- Color Mix (Dynamic) ---------- */
+.bg-mix-primary, .bg-mp {
+  background-color: color-mix(in srgb, var(--color-primary) 70%, white);
+}
+.bg-mix-secondary, .bg-ms {
+  background-color: color-mix(in srgb, var(--color-secondary) 70%, white);
+}
+.text-mix-fg, .txt-mf {
+  color: color-mix(in srgb, var(--color-fg) 70%, var(--color-bg));
+}
+
+/* ---------- Opacity Utilities ---------- */
+.opacity-0, .op-0 { opacity: 0; }
+.opacity-25, .op-25 { opacity: 0.25; }
+.opacity-50, .op-50 { opacity: 0.5; }
+.opacity-75, .op-75 { opacity: 0.75; }
+.opacity-100, .op-100 { opacity: 1; }
+
+/* ---------- Mix-Blend Modes ---------- */
+.mix-normal, .mx-n { mix-blend-mode: normal; }
+.mix-multiply, .mx-m { mix-blend-mode: multiply; }
+.mix-screen, .mx-s { mix-blend-mode: screen; }
+.mix-overlay, .mx-o { mix-blend-mode: overlay; }
+.mix-darken, .mx-d { mix-blend-mode: darken; }
+.mix-lighten, .mx-l { mix-blend-mode: lighten; }
+.mix-color, .mx-c { mix-blend-mode: color; }
+.mix-luminosity, .mx-lu { mix-blend-mode: luminosity; }
+
+/* ---------- Contrast & Filter Colors ---------- */
+.filter-contrast-50, .flt-c50 { filter: contrast(0.5); }
+.filter-contrast-100, .flt-c100 { filter: contrast(1); }
+.filter-contrast-150, .flt-c150 { filter: contrast(1.5); }
+
+.filter-bright-50, .flt-b50 { filter: brightness(0.5); }
+.filter-bright-100, .flt-b100 { filter: brightness(1); }
+.filter-bright-150, .flt-b150 { filter: brightness(1.5); }
+
+.filter-invert, .flt-inv { filter: invert(1); }
+.filter-none, .flt-n { filter: none; }
+
+/* ---------- Text Selection Color ---------- */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
