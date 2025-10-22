@@ -1,0 +1,99 @@
+/* =========================================================
+   BaseFrame – Borders & Radius Utilities
+   ---------------------------------------------------------
+   Covers border style, width, side control, color (via vars),
+   border radius (shape), and outline.
+   ========================================================= */
+
+/* ---------- Border Style ---------- */
+.border-solid, .bd-sd { border-style: solid; }
+.border-dashed, .bd-ds { border-style: dashed; }
+.border-dotted, .bd-dt { border-style: dotted; }
+.border-double, .bd-db { border-style: double; }
+.border-none, .bd-n { border-style: none; }
+
+/* ---------- Border Width ---------- */
+.border-0, .bd-0 { border-width: 0; }
+.border-1, .bd-1 { border-width: 1px; }
+.border-2, .bd-2 { border-width: 2px; }
+.border-3, .bd-3 { border-width: 3px; }
+.border-4, .bd-4 { border-width: 4px; }
+.border-5, .bd-5 { border-width: 5px; }
+
+/* ---------- Border Position (Individual Sides) ---------- */
+.border-top, .bd-t { border-top: 1px solid currentColor; }
+.border-right, .bd-r { border-right: 1px solid currentColor; }
+.border-bottom, .bd-b { border-bottom: 1px solid currentColor; }
+.border-left, .bd-l { border-left: 1px solid currentColor; }
+
+.border-top-0, .bd-t0 { border-top: none; }
+.border-right-0, .bd-r0 { border-right: none; }
+.border-bottom-0, .bd-b0 { border-bottom: none; }
+.border-left-0, .bd-l0 { border-left: none; }
+
+/* ---------- Border Radius ---------- */
+.radius-none, .r-n { border-radius: 0; }
+.radius-sm, .r-s { border-radius: var(--radius-sm); }
+.radius-md, .r-m { border-radius: var(--radius-md); }
+.radius-lg, .r-l { border-radius: var(--radius-lg); }
+.radius-round, .r-r { border-radius: var(--radius-round); }
+.radius-full, .r-f { border-radius: 50%; }
+
+/* ---------- Border Corner Control ---------- */
+.radius-tl, .r-tl { border-top-left-radius: var(--radius-md); }
+.radius-tr, .r-tr { border-top-right-radius: var(--radius-md); }
+.radius-bl, .r-bl { border-bottom-left-radius: var(--radius-md); }
+.radius-br, .r-br { border-bottom-right-radius: var(--radius-md); }
+
+/* ---------- Border Collapse & Spacing ---------- */
+.border-collapse, .bd-c { border-collapse: collapse; }
+.border-separate, .bd-sp { border-collapse: separate; }
+.border-spacing-sm, .bd-sp-s { border-spacing: 0.25rem; }
+.border-spacing-md, .bd-sp-m { border-spacing: 0.5rem; }
+.border-spacing-lg, .bd-sp-l { border-spacing: 1rem; }
+
+/* ---------- Outline Styles ---------- */
+.outline-none, .ol-n { outline: none; }
+.outline-solid, .ol-s { outline-style: solid; }
+.outline-dashed, .ol-d { outline-style: dashed; }
+.outline-dotted, .ol-t { outline-style: dotted; }
+.outline-double, .ol-db { outline-style: double; }
+
+/* ---------- Outline Width ---------- */
+.outline-1, .ol-1 { outline-width: 1px; }
+.outline-2, .ol-2 { outline-width: 2px; }
+.outline-3, .ol-3 { outline-width: 3px; }
+.outline-4, .ol-4 { outline-width: 4px; }
+
+/* ---------- Outline Offset ---------- */
+.outline-offset-0, .ol-o0 { outline-offset: 0; }
+.outline-offset-1, .ol-o1 { outline-offset: 2px; }
+.outline-offset-2, .ol-o2 { outline-offset: 4px; }
+.outline-offset-3, .ol-o3 { outline-offset: 6px; }
+
+/* ---------- Border Image (Basic Support) ---------- */
+.border-img-none, .bd-img-n { border-image: none; }
+.border-img-repeat, .bd-img-r { border-image-repeat: stretch; }
+.border-img-slice, .bd-img-s { border-image-slice: 30; }
+
+/* ---------- Rounded Edge Combos ---------- */
+.radius-top, .r-t {
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+.radius-bottom, .r-b {
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+.radius-left, .r-lf {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+.radius-right, .r-rt {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* ---------- Border Visibility ---------- */
+.border-visible, .bd-v { border-style: solid; }
+.border-hidden, .bd-h { border-style: hidden; }
