@@ -1,0 +1,24 @@
+@import './_variables.css';
+@import './_color.css';
+@import '../typography.css';
+@import '../font.css';
+@import '../colors.css';
+@import '../borders-radius.css';
+@import '../shadows-outline-filters.css';
+@import '../transitions-animations.css';
+@import '../backgrounds-clip-mask.css';
+@import '../visibility-scroll-resize.css';
+@import '../accessibility-print.css';
+
+/* Base resets and normalization */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
