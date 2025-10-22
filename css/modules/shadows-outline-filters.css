@@ -1,0 +1,108 @@
+/* =========================================================
+   BaseFrame – Shadows, Outline & Filters
+   ---------------------------------------------------------
+   Covers box-shadow, text-shadow, outline effects,
+   and CSS filter utilities.
+   ========================================================= */
+
+/* ---------- Box Shadows ---------- */
+.shadow-none, .sh-n { box-shadow: none; }
+.shadow-sm, .sh-s { box-shadow: var(--shadow-sm); }
+.shadow-md, .sh-m { box-shadow: var(--shadow-md); }
+.shadow-lg, .sh-l { box-shadow: var(--shadow-lg); }
+.shadow-xl, .sh-x {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+.shadow-inner, .sh-i { box-shadow: inset 0 2px 4px rgba(0,0,0,0.15); }
+
+/* ---------- Focus / Outline Emphasis ---------- */
+.focus-outline, .f-ol {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.focus-outline-none, .f-ol-n { outline: none; }
+.focus-ring, .f-ring {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 50%, transparent);
+}
+
+/* ---------- Text Shadow (for readability highlights) ---------- */
+.text-shadow-sm, .txt-sh-s { text-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+.text-shadow-md, .txt-sh-m { text-shadow: 0 2px 2px rgba(0,0,0,0.2); }
+.text-shadow-lg, .txt-sh-l { text-shadow: 0 3px 6px rgba(0,0,0,0.3); }
+.text-shadow-none, .txt-sh-n { text-shadow: none; }
+
+/* ---------- Filter: Blur ---------- */
+.filter-blur-0, .flt-b0 { filter: blur(0); }
+.filter-blur-sm, .flt-bs { filter: blur(2px); }
+.filter-blur-md, .flt-bm { filter: blur(5px); }
+.filter-blur-lg, .flt-bl { filter: blur(10px); }
+
+/* ---------- Filter: Brightness ---------- */
+.filter-bright-50, .flt-br50 { filter: brightness(0.5); }
+.filter-bright-75, .flt-br75 { filter: brightness(0.75); }
+.filter-bright-100, .flt-br100 { filter: brightness(1); }
+.filter-bright-125, .flt-br125 { filter: brightness(1.25); }
+.filter-bright-150, .flt-br150 { filter: brightness(1.5); }
+
+/* ---------- Filter: Contrast ---------- */
+.filter-contrast-50, .flt-ct50 { filter: contrast(0.5); }
+.filter-contrast-75, .flt-ct75 { filter: contrast(0.75); }
+.filter-contrast-100, .flt-ct100 { filter: contrast(1); }
+.filter-contrast-150, .flt-ct150 { filter: contrast(1.5); }
+
+/* ---------- Filter: Grayscale ---------- */
+.filter-gray-0, .flt-g0 { filter: grayscale(0); }
+.filter-gray-50, .flt-g50 { filter: grayscale(0.5); }
+.filter-gray-100, .flt-g100 { filter: grayscale(1); }
+
+/* ---------- Filter: Hue Rotate ---------- */
+.filter-hue-0, .flt-h0 { filter: hue-rotate(0deg); }
+.filter-hue-90, .flt-h90 { filter: hue-rotate(90deg); }
+.filter-hue-180, .flt-h180 { filter: hue-rotate(180deg); }
+.filter-hue-270, .flt-h270 { filter: hue-rotate(270deg); }
+
+/* ---------- Filter: Invert ---------- */
+.filter-invert-0, .flt-i0 { filter: invert(0); }
+.filter-invert-100, .flt-i100 { filter: invert(1); }
+
+/* ---------- Filter: Saturation ---------- */
+.filter-saturate-0, .flt-s0 { filter: saturate(0); }
+.filter-saturate-50, .flt-s50 { filter: saturate(0.5); }
+.filter-saturate-100, .flt-s100 { filter: saturate(1); }
+.filter-saturate-150, .flt-s150 { filter: saturate(1.5); }
+.filter-saturate-200, .flt-s200 { filter: saturate(2); }
+
+/* ---------- Filter: Sepia ---------- */
+.filter-sepia-0, .flt-sp0 { filter: sepia(0); }
+.filter-sepia-50, .flt-sp50 { filter: sepia(0.5); }
+.filter-sepia-100, .flt-sp100 { filter: sepia(1); }
+
+/* ---------- Filter: Drop Shadow ---------- */
+.filter-dropshadow-sm, .flt-ds { filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2)); }
+.filter-dropshadow-md, .flt-dm { filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3)); }
+.filter-dropshadow-lg, .flt-dl { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); }
+
+/* ---------- Backdrop Filters ---------- */
+.backdrop-blur-sm, .bfl-bs { backdrop-filter: blur(2px); }
+.backdrop-blur-md, .bfl-bm { backdrop-filter: blur(5px); }
+.backdrop-blur-lg, .bfl-bl { backdrop-filter: blur(10px); }
+
+.backdrop-bright-125, .bfl-br { backdrop-filter: brightness(1.25); }
+.backdrop-contrast-150, .bfl-ct { backdrop-filter: contrast(1.5); }
+
+/* ---------- Combined Filter Presets ---------- */
+.filter-soft, .flt-soft {
+  filter: blur(2px) brightness(1.1) contrast(0.9);
+}
+.filter-glow, .flt-glow {
+  filter: drop-shadow(0 0 6px var(--color-primary));
+}
+.filter-none, .flt-n { filter: none; }
+
+/* ---------- Mix & Layer Effects ---------- */
+.blend-normal, .bl-n { mix-blend-mode: normal; }
+.blend-multiply, .bl-m { mix-blend-mode: multiply; }
+.blend-screen, .bl-s { mix-blend-mode: screen; }
+.blend-overlay, .bl-o { mix-blend-mode: overlay; }
+.blend-color, .bl-c { mix-blend-mode: color; }
+.blend-luminosity, .bl-lu { mix-blend-mode: luminosity; }
