@@ -1,0 +1,179 @@
+/* =========================================================
+   BaseFrame: Accessibility & Print
+   Utilities for A11y and media-specific rendering
+   ========================================================= */
+
+/* ===============================
+   Accessibility Helpers
+   =============================== */
+
+.sr-only, .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary, #0078d7);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+  border-radius: 0.25rem;
+  transition: top 0.3s ease;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+[aria-hidden="true"] {
+  display: none !important;
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+.focus-outline, .fcs-outl {
+  outline: 2px solid var(--color-focus, #2684ff);
+  outline-offset: 2px;
+}
+
+.no-outline:focus {
+  outline: none !important;
+}
+
+[role="button"],
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+}
+
+[disabled], .disabled, [aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ===============================
+   Reduced Motion Preference
+   =============================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===============================
+   Contrast & Color-Scheme
+   =============================== */
+@media (prefers-contrast: more) {
+  * {
+    border-color: var(--color-contrast, #000) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    background-color: var(--color-bg-dark, #121212);
+    color: var(--color-text-dark, #f2f2f2);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    background-color: var(--color-bg-light, #ffffff);
+    color: var(--color-text-light, #111111);
+  }
+}
+
+/* ===============================
+   Print Styles
+   =============================== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  @page {
+    margin: 1cm;
+  }
+
+  .no-print, .nopr {
+    display: none !important;
+  }
+
+  .print-only, .prnt-only {
+    display: block !important;
+  }
+}
