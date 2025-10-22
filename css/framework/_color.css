@@ -1,0 +1,11 @@
+:root {
+  /* Derived Tones */
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 70%, white);
+  --color-primary-dark: color-mix(in srgb, var(--color-primary) 70%, black);
+
+  --color-success-light: color-mix(in srgb, var(--color-success) 70%, white);
+  --color-danger-light: color-mix(in srgb, var(--color-danger) 70%, white);
+
+  --color-surface: color-mix(in srgb, var(--color-bg) 90%, var(--color-fg) 10%);
+  --color-border: color-mix(in srgb, var(--color-muted) 50%, var(--color-bg) 50%);
+}
