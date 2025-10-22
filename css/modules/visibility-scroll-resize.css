@@ -1,0 +1,130 @@
+/* =========================================================
+   BaseFrame – Visibility, Scroll & Resize
+   ---------------------------------------------------------
+   Controls display, visibility, overflow, scrolling, resizing,
+   and user interaction properties.
+   ========================================================= */
+
+/* ---------- Display ---------- */
+.d-none, .dn { display: none !important; }
+.d-block, .db { display: block; }
+.d-inline, .di { display: inline; }
+.d-inline-block, .dib { display: inline-block; }
+.d-flex, .df { display: flex; }
+.d-inline-flex, .dif { display: inline-flex; }
+.d-grid, .dg { display: grid; }
+.d-inline-grid, .dig { display: inline-grid; }
+.d-table, .dt { display: table; }
+.d-table-row, .dtr { display: table-row; }
+.d-table-cell, .dtc { display: table-cell; }
+.d-contents, .dct { display: contents; }
+.d-list, .dl { display: list-item; }
+
+/* ---------- Visibility ---------- */
+.visible, .vis { visibility: visible; }
+.invisible, .invis { visibility: hidden; }
+.collapse, .col { visibility: collapse; }
+
+/* ---------- Overflow ---------- */
+.overflow-auto, .ov-a { overflow: auto; }
+.overflow-hidden, .ov-h { overflow: hidden; }
+.overflow-visible, .ov-v { overflow: visible; }
+.overflow-scroll, .ov-s { overflow: scroll; }
+
+.overflow-x-auto, .ovx-a { overflow-x: auto; }
+.overflow-x-hidden, .ovx-h { overflow-x: hidden; }
+.overflow-y-auto, .ovy-a { overflow-y: auto; }
+.overflow-y-hidden, .ovy-h { overflow-y: hidden; }
+
+/* ---------- Scroll Behavior ---------- */
+.scroll-auto, .scr-a { scroll-behavior: auto; }
+.scroll-smooth, .scr-s { scroll-behavior: smooth; }
+
+.scroll-x, .scr-x { overflow-x: scroll; overflow-y: hidden; }
+.scroll-y, .scr-y { overflow-y: scroll; overflow-x: hidden; }
+.scroll-none, .scr-n { overflow: hidden; }
+
+/* ---------- Scroll Snap ---------- */
+.snap-none, .sn-n { scroll-snap-type: none; }
+.snap-x, .sn-x { scroll-snap-type: x mandatory; }
+.snap-y, .sn-y { scroll-snap-type: y mandatory; }
+.snap-both, .sn-b { scroll-snap-type: both mandatory; }
+.snap-center, .sn-c { scroll-snap-align: center; }
+.snap-start, .sn-s { scroll-snap-align: start; }
+.snap-end, .sn-e { scroll-snap-align: end; }
+
+/* ---------- Overscroll Behavior ---------- */
+.overscroll-auto, .ovscr-a { overscroll-behavior: auto; }
+.overscroll-contain, .ovscr-c { overscroll-behavior: contain; }
+.overscroll-none, .ovscr-n { overscroll-behavior: none; }
+
+/* ---------- Resize ---------- */
+.resize-none, .rs-n { resize: none; }
+.resize-both, .rs-b { resize: both; }
+.resize-x, .rs-x { resize: horizontal; }
+.resize-y, .rs-y { resize: vertical; }
+
+/* ---------- Pointer Events ---------- */
+.pointer-none, .pe-n { pointer-events: none; }
+.pointer-auto, .pe-a { pointer-events: auto; }
+.pointer-fill, .pe-f { pointer-events: fill; }
+
+/* ---------- Cursor ---------- */
+.cursor-auto, .cur-a { cursor: auto; }
+.cursor-pointer, .cur-p { cursor: pointer; }
+.cursor-text, .cur-t { cursor: text; }
+.cursor-move, .cur-m { cursor: move; }
+.cursor-grab, .cur-g { cursor: grab; }
+.cursor-not-allowed, .cur-na { cursor: not-allowed; }
+.cursor-wait, .cur-w { cursor: wait; }
+.cursor-crosshair, .cur-c { cursor: crosshair; }
+.cursor-none, .cur-n { cursor: none; }
+
+/* ---------- User Select ---------- */
+.select-none, .sel-n { user-select: none; }
+.select-text, .sel-t { user-select: text; }
+.select-all, .sel-a { user-select: all; }
+.select-auto, .sel-au { user-select: auto; }
+
+/* ---------- Appearance ---------- */
+.appearance-none, .app-n { appearance: none; }
+.appearance-auto, .app-a { appearance: auto; }
+
+/* ---------- Opacity ---------- */
+.opacity-0, .op-0 { opacity: 0; }
+.opacity-25, .op-25 { opacity: 0.25; }
+.opacity-50, .op-50 { opacity: 0.5; }
+.opacity-75, .op-75 { opacity: 0.75; }
+.opacity-100, .op-100 { opacity: 1; }
+
+/* ---------- Z-Index ---------- */
+.z-0, .z0 { z-index: 0; }
+.z-10, .z10 { z-index: 10; }
+.z-20, .z20 { z-index: 20; }
+.z-50, .z50 { z-index: 50; }
+.z-auto, .za { z-index: auto; }
+
+/* ---------- Backface & Perspective ---------- */
+.backface-visible, .bf-v { backface-visibility: visible; }
+.backface-hidden, .bf-h { backface-visibility: hidden; }
+.perspective-none, .pr-n { perspective: none; }
+.perspective-500, .pr-500 { perspective: 500px; }
+.perspective-1000, .pr-1k { perspective: 1000px; }
+
+/* ---------- Scrollbar Styling (Best Practice) ---------- */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--color-dark) 60%, transparent);
+  border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* ---------- Print / Media Utility Visibility ---------- */
+.print-hidden { display: none !important; }
+@media print {
+  .print-only { display: block !important; }
+  .screen-only { display: none !important; }
+}
