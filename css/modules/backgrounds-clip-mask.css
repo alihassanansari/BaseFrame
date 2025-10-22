@@ -1,0 +1,150 @@
+/* =========================================================
+   BaseFrame – Backgrounds, Clip, Mask, Object-fit, Aspect-ratio
+   ---------------------------------------------------------
+   Includes background colors, gradients, patterns, image
+   positioning, clipping, masking, object fitting, and ratio utilities.
+   ========================================================= */
+
+/* ---------- Background Colors ---------- */
+.bg-transparent, .bg-t { background-color: transparent; }
+.bg-primary, .bg-p { background-color: var(--color-primary); }
+.bg-secondary, .bg-s { background-color: var(--color-secondary); }
+.bg-accent, .bg-a { background-color: var(--color-accent); }
+.bg-success, .bg-suc { background-color: var(--color-success); }
+.bg-error, .bg-err { background-color: var(--color-error); }
+.bg-warning, .bg-w { background-color: var(--color-warning); }
+.bg-info, .bg-i { background-color: var(--color-info); }
+.bg-light, .bg-l { background-color: var(--color-light); }
+.bg-dark, .bg-d { background-color: var(--color-dark); }
+
+/* ---------- Background Opacity ---------- */
+.bg-opacity-0, .bgo-0 { background-color: color-mix(in srgb, var(--color-primary) 0%, transparent); }
+.bg-opacity-25, .bgo-25 { background-color: color-mix(in srgb, var(--color-primary) 25%, transparent); }
+.bg-opacity-50, .bgo-50 { background-color: color-mix(in srgb, var(--color-primary) 50%, transparent); }
+.bg-opacity-75, .bgo-75 { background-color: color-mix(in srgb, var(--color-primary) 75%, transparent); }
+.bg-opacity-100, .bgo-100 { background-color: color-mix(in srgb, var(--color-primary) 100%, transparent); }
+
+/* ---------- Background Images ---------- */
+.bg-none, .bg-n { background-image: none; }
+.bg-cover, .bg-cv { background-size: cover; }
+.bg-contain, .bg-ct { background-size: contain; }
+.bg-auto, .bg-a { background-size: auto; }
+
+/* ---------- Background Position ---------- */
+.bg-center, .bg-c { background-position: center; }
+.bg-top, .bg-tp { background-position: top; }
+.bg-bottom, .bg-b { background-position: bottom; }
+.bg-left, .bg-lf { background-position: left; }
+.bg-right, .bg-r { background-position: right; }
+
+/* ---------- Background Repeat ---------- */
+.bg-repeat, .bg-rp { background-repeat: repeat; }
+.bg-no-repeat, .bg-nr { background-repeat: no-repeat; }
+.bg-repeat-x, .bg-rx { background-repeat: repeat-x; }
+.bg-repeat-y, .bg-ry { background-repeat: repeat-y; }
+
+/* ---------- Background Attachment ---------- */
+.bg-fixed, .bg-fx { background-attachment: fixed; }
+.bg-scroll, .bg-scr { background-attachment: scroll; }
+
+/* ---------- Gradients ---------- */
+.bg-gradient, .bg-g {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-top, .bg-gt {
+  background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-bottom, .bg-gb {
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-left, .bg-gl {
+  background: linear-gradient(to left, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-right, .bg-gr {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+.bg-radial, .bg-rd {
+  background: radial-gradient(circle, var(--color-primary), var(--color-secondary));
+}
+
+/* ---------- Background Blend ---------- */
+.bg-blend-normal, .bg-bn { background-blend-mode: normal; }
+.bg-blend-multiply, .bg-bm { background-blend-mode: multiply; }
+.bg-blend-screen, .bg-bs { background-blend-mode: screen; }
+.bg-blend-overlay, .bg-bo { background-blend-mode: overlay; }
+.bg-blend-color, .bg-bc { background-blend-mode: color; }
+.bg-blend-luminosity, .bg-blu { background-blend-mode: luminosity; }
+
+/* ---------- Clip Path ---------- */
+.clip-none, .clp-n { clip-path: none; }
+.clip-circle, .clp-c { clip-path: circle(50%); }
+.clip-ellipse, .clp-e { clip-path: ellipse(60% 40% at center); }
+.clip-polygon, .clp-p { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+.clip-inset, .clp-i { clip-path: inset(10%); }
+
+/* ---------- Masking ---------- */
+.mask-none, .msk-n { mask: none; }
+.mask-circle, .msk-c { mask-image: radial-gradient(circle, #000 60%, transparent 61%); }
+.mask-gradient, .msk-g { mask-image: linear-gradient(to bottom, #000 80%, transparent 100%); }
+.mask-invert, .msk-i { mask-composite: exclude; }
+
+/* ---------- Object Fit ---------- */
+.obj-contain, .obj-ct { object-fit: contain; }
+.obj-cover, .obj-cv { object-fit: cover; }
+.obj-fill, .obj-f { object-fit: fill; }
+.obj-scale, .obj-s { object-fit: scale-down; }
+.obj-none, .obj-n { object-fit: none; }
+
+/* ---------- Object Position ---------- */
+.obj-center, .obj-c { object-position: center; }
+.obj-top, .obj-t { object-position: top; }
+.obj-bottom, .obj-b { object-position: bottom; }
+.obj-left, .obj-l { object-position: left; }
+.obj-right, .obj-r { object-position: right; }
+
+/* ---------- Aspect Ratio ---------- */
+.ratio-auto, .rat-a { aspect-ratio: auto; }
+.ratio-1x1, .rat-1 { aspect-ratio: 1 / 1; }
+.ratio-16x9, .rat-169 { aspect-ratio: 16 / 9; }
+.ratio-4x3, .rat-43 { aspect-ratio: 4 / 3; }
+.ratio-21x9, .rat-219 { aspect-ratio: 21 / 9; }
+.ratio-3x2, .rat-32 { aspect-ratio: 3 / 2; }
+
+/* ---------- Overlay & Blend Presets ---------- */
+.bg-overlay, .bg-ov {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)
+  ), var(--color-primary);
+  background-blend-mode: overlay;
+}
+.bg-image-darken, .bg-id {
+  background-color: rgba(0,0,0,0.5);
+  background-blend-mode: multiply;
+}
+
+/* ---------- Pattern Backgrounds ---------- */
+.bg-dots, .bg-dt {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+.bg-grid, .bg-grd {
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+                    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.bg-diagonal, .bg-dg {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-light),
+    var(--color-light) 10px,
+    var(--color-primary) 10px,
+    var(--color-primary) 20px
+  );
+}
+
+/* ---------- Advanced Mix Utilities ---------- */
+.mix-soft-light, .mix-sl { mix-blend-mode: soft-light; }
+.mix-hard-light, .mix-hl { mix-blend-mode: hard-light; }
+.mix-darken, .mix-dk { mix-blend-mode: darken; }
+.mix-lighten, .mix-lt { mix-blend-mode: lighten; }
