@@ -1,0 +1,92 @@
+/* =========================================================
+   BaseFrame – Typography Utilities
+   ---------------------------------------------------------
+   Covers text alignment, decoration, transform, wrapping,
+   spacing, overflow, indentation, and white-space control.
+   Each has long (.text-*) and short (.txt-*) versions.
+   ========================================================= */
+
+/* ---------- Alignment ---------- */
+.text-left, .txt-l { text-align: left; }
+.text-center, .txt-c { text-align: center; }
+.text-right, .txt-r { text-align: right; }
+.text-justify, .txt-j { text-align: justify; }
+.text-start, .txt-s { text-align: start; }
+.text-end, .txt-e { text-align: end; }
+
+/* ---------- Vertical Alignment ---------- */
+.align-top, .aln-t { vertical-align: top; }
+.align-middle, .aln-m { vertical-align: middle; }
+.align-bottom, .aln-b { vertical-align: bottom; }
+.align-baseline, .aln-bl { vertical-align: baseline; }
+
+/* ---------- Text Decoration ---------- */
+.text-underline, .txt-u { text-decoration: underline; }
+.text-overline, .txt-o { text-decoration: overline; }
+.text-line-through, .txt-lt { text-decoration: line-through; }
+.text-none, .txt-n { text-decoration: none; }
+
+/* ---------- Text Transform ---------- */
+.text-uppercase, .txt-up { text-transform: uppercase; }
+.text-lowercase, .txt-low { text-transform: lowercase; }
+.text-capitalize, .txt-cap { text-transform: capitalize; }
+.text-normal, .txt-norm { text-transform: none; }
+
+/* ---------- Text Overflow ---------- */
+.text-clip, .txt-clip { text-overflow: clip; }
+.text-ellipsis, .txt-ell { text-overflow: ellipsis; }
+.text-wrap, .txt-wrap { white-space: normal; }
+.text-nowrap, .txt-nw { white-space: nowrap; }
+.text-pre, .txt-pre { white-space: pre; }
+.text-prewrap, .txt-pw { white-space: pre-wrap; }
+.text-preline, .txt-pl { white-space: pre-line; }
+
+/* ---------- Letter, Word, and Line Spacing ---------- */
+.letter-tight, .ltr-t { letter-spacing: -0.05em; }
+.letter-normal, .ltr-n { letter-spacing: normal; }
+.letter-wide, .ltr-w { letter-spacing: 0.05em; }
+.word-tight, .wrd-t { word-spacing: -0.1em; }
+.word-normal, .wrd-n { word-spacing: normal; }
+.word-wide, .wrd-w { word-spacing: 0.1em; }
+.line-tight, .ln-t { line-height: 1.1; }
+.line-normal, .ln-n { line-height: 1.5; }
+.line-loose, .ln-l { line-height: 2; }
+
+/* ---------- Text Indentation ---------- */
+.text-indent-sm, .txt-i-s { text-indent: 0.5rem; }
+.text-indent-md, .txt-i-m { text-indent: 1rem; }
+.text-indent-lg, .txt-i-l { text-indent: 2rem; }
+
+/* ---------- Text Shadow ---------- */
+.text-shadow-sm, .txt-sh-s { text-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+.text-shadow-md, .txt-sh-m { text-shadow: 0 2px 2px rgba(0,0,0,0.15); }
+.text-shadow-lg, .txt-sh-l { text-shadow: 0 3px 6px rgba(0,0,0,0.25); }
+.text-shadow-none, .txt-sh-n { text-shadow: none; }
+
+/* ---------- Text Orientation (for vertical writing) ---------- */
+.text-horizontal, .txt-h { writing-mode: horizontal-tb; }
+.text-vertical, .txt-v { writing-mode: vertical-rl; }
+
+/* ---------- Hyphenation ---------- */
+.text-hyphen-auto, .txt-ha { hyphens: auto; }
+.text-hyphen-none, .txt-hn { hyphens: none; }
+
+/* ---------- Direction ---------- */
+.text-ltr, .txt-ltr { direction: ltr; }
+.text-rtl, .txt-rtl { direction: rtl; }
+
+/* ---------- Word Breaks ---------- */
+.word-break-normal, .wb-n { word-break: normal; }
+.word-break-all, .wb-a { word-break: break-all; }
+.word-break-word, .wb-w { word-break: break-word; }
+.overflow-wrap, .ow-bw { overflow-wrap: break-word; }
+
+/* ---------- Highlight / Selection ---------- */
+.selection-none, .sel-n { user-select: none; }
+.selection-auto, .sel-a { user-select: auto; }
+.selection-text, .sel-t { user-select: text; }
+
+/* ---------- Quotes and Text Rendering ---------- */
+.text-render-auto, .txt-ra { text-rendering: auto; }
+.text-render-optimize, .txt-ro { text-rendering: optimizeLegibility; }
+.text-render-speed, .txt-rs { text-rendering: geometricPrecision; }
