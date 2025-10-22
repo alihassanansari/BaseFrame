@@ -1,0 +1,100 @@
+/* =========================================================
+   BaseFrame – Font Utilities
+   ---------------------------------------------------------
+   Covers font-family, size, weight, style, variant,
+   kerning, smoothing, and rendering options.
+   ========================================================= */
+
+/* ---------- Font Family ---------- */
+.font-sans, .f-sans { font-family: var(--font-sans); }
+.font-serif, .f-serif { font-family: var(--font-serif); }
+.font-mono, .f-mono { font-family: var(--font-mono); }
+
+/* ---------- Font Style ---------- */
+.font-normal, .f-n { font-style: normal; }
+.font-italic, .f-i { font-style: italic; }
+.font-oblique, .f-o { font-style: oblique; }
+
+/* ---------- Font Weight ---------- */
+.font-thin, .f-th { font-weight: 100; }
+.font-extralight, .f-xl { font-weight: 200; }
+.font-light, .f-l { font-weight: 300; }
+.font-normal, .f-n { font-weight: 400; }
+.font-medium, .f-m { font-weight: 500; }
+.font-semibold, .f-sb { font-weight: 600; }
+.font-bold, .f-b { font-weight: 700; }
+.font-extrabold, .f-xb { font-weight: 800; }
+.font-black, .f-bl { font-weight: 900; }
+
+/* ---------- Font Size ---------- */
+.font-xs, .f-xs { font-size: var(--text-xs); }
+.font-sm, .f-sm { font-size: var(--text-sm); }
+.font-base, .f-base { font-size: var(--text-base); }
+.font-lg, .f-lg { font-size: var(--text-lg); }
+.font-xl, .f-xl { font-size: var(--text-xl); }
+.font-2xl, .f-2xl { font-size: var(--text-2xl); }
+.font-3xl, .f-3xl { font-size: var(--text-3xl); }
+.font-100, .f-100 { font-size: 100%; }
+.font-125, .f-125 { font-size: 125%; }
+.font-150, .f-150 { font-size: 150%; }
+.font-200, .f-200 { font-size: 200%; }
+
+/* ---------- Font Variant ---------- */
+.font-smallcaps, .f-sc { font-variant: small-caps; }
+.font-normalcaps, .f-nc { font-variant: normal; }
+.font-tabular, .f-tab { font-variant-numeric: tabular-nums; }
+.font-lining, .f-lin { font-variant-numeric: lining-nums; }
+.font-oldstyle, .f-old { font-variant-numeric: oldstyle-nums; }
+
+/* ---------- Font Kerning ---------- */
+.font-kerning-auto, .f-ka { font-kerning: auto; }
+.font-kerning-normal, .f-kn { font-kerning: normal; }
+.font-kerning-none, .f-k0 { font-kerning: none; }
+
+/* ---------- Optical Sizing ---------- */
+.font-optical-auto, .f-opt-a { font-optical-sizing: auto; }
+.font-optical-none, .f-opt-n { font-optical-sizing: none; }
+
+/* ---------- Font Stretch ---------- */
+.font-condensed, .f-cond { font-stretch: condensed; }
+.font-expanded, .f-exp { font-stretch: expanded; }
+.font-ultracondensed, .f-uc { font-stretch: ultra-condensed; }
+.font-ultraexpanded, .f-ue { font-stretch: ultra-expanded; }
+
+/* ---------- Line Height ---------- */
+.font-line-tight, .f-lt { line-height: 1.1; }
+.font-line-normal, .f-ln { line-height: 1.5; }
+.font-line-loose, .f-ll { line-height: 2; }
+
+/* ---------- Font Smoothness ---------- */
+.font-antialiased, .f-aa {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.font-subpixel, .f-sp {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* ---------- Text Rendering ---------- */
+.font-render-auto, .f-ra { text-rendering: auto; }
+.font-render-legible, .f-rl { text-rendering: optimizeLegibility; }
+.font-render-speed, .f-rs { text-rendering: geometricPrecision; }
+
+/* ---------- Font Feature Settings ---------- */
+.font-liga, .f-liga { font-feature-settings: "liga"; }
+.font-noliga, .f-noliga { font-feature-settings: "liga" 0; }
+.font-alt, .f-alt { font-feature-settings: "salt"; }
+.font-num, .f-num { font-feature-settings: "tnum"; }
+
+/* ---------- Font Variation Settings ---------- */
+.font-variation-normal, .f-var-n { font-variation-settings: normal; }
+.font-variation-wide, .f-var-w { font-variation-settings: "wdth" 120; }
+.font-variation-bold, .f-var-b { font-variation-settings: "wght" 700; }
+.font-variation-thin, .f-var-t { font-variation-settings: "wght" 300; }
+
+/* ---------- Font Language Override ---------- */
+.font-lang-none, .f-lang-n { font-language-override: normal; }
+.font-lang-latn, .f-lang-l { font-language-override: "latn"; }
+.font-lang-grek, .f-lang-g { font-language-override: "grek"; }
+.font-lang-cyrl, .f-lang-c { font-language-override: "cyrl"; }
