@@ -1,0 +1,150 @@
+/* =========================================================
+   BaseFrame – Transitions & Animations
+   ---------------------------------------------------------
+   Covers transitions, durations, delays, timing functions,
+   transforms, and reusable animation utilities.
+   ========================================================= */
+
+/* ---------- Transition Property ---------- */
+.transition-all, .tr-all { transition-property: all; }
+.transition-color, .tr-c { transition-property: color, background-color, border-color; }
+.transition-transform, .tr-t { transition-property: transform; }
+.transition-opacity, .tr-o { transition-property: opacity; }
+.transition-none, .tr-n { transition: none; }
+
+/* ---------- Transition Duration ---------- */
+.duration-75, .dur-75 { transition-duration: 75ms; }
+.duration-100, .dur-100 { transition-duration: 100ms; }
+.duration-200, .dur-200 { transition-duration: 200ms; }
+.duration-300, .dur-300 { transition-duration: 300ms; }
+.duration-500, .dur-500 { transition-duration: 500ms; }
+.duration-1000, .dur-1k { transition-duration: 1000ms; }
+
+/* ---------- Transition Delay ---------- */
+.delay-0, .del-0 { transition-delay: 0s; }
+.delay-100, .del-100 { transition-delay: 0.1s; }
+.delay-200, .del-200 { transition-delay: 0.2s; }
+.delay-500, .del-500 { transition-delay: 0.5s; }
+.delay-1000, .del-1k { transition-delay: 1s; }
+
+/* ---------- Timing Function ---------- */
+.ease-linear, .ease-l { transition-timing-function: linear; }
+.ease-in, .ease-i { transition-timing-function: ease-in; }
+.ease-out, .ease-o { transition-timing-function: ease-out; }
+.ease-in-out, .ease-io { transition-timing-function: ease-in-out; }
+.ease-smooth, .ease-s {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Transform Utilities ---------- */
+.scale-0, .sc-0 { transform: scale(0); }
+.scale-50, .sc-50 { transform: scale(0.5); }
+.scale-75, .sc-75 { transform: scale(0.75); }
+.scale-100, .sc-100 { transform: scale(1); }
+.scale-125, .sc-125 { transform: scale(1.25); }
+.scale-150, .sc-150 { transform: scale(1.5); }
+
+.rotate-0, .rt-0 { transform: rotate(0deg); }
+.rotate-45, .rt-45 { transform: rotate(45deg); }
+.rotate-90, .rt-90 { transform: rotate(90deg); }
+.rotate-180, .rt-180 { transform: rotate(180deg); }
+
+.translate-x-0, .tx-0 { transform: translateX(0); }
+.translate-x-50, .tx-50 { transform: translateX(50%); }
+.translate-x--50, .tx--50 { transform: translateX(-50%); }
+.translate-y-0, .ty-0 { transform: translateY(0); }
+.translate-y-50, .ty-50 { transform: translateY(50%); }
+.translate-y--50, .ty--50 { transform: translateY(-50%); }
+
+.skew-x-10, .skx-10 { transform: skewX(10deg); }
+.skew-y-10, .sky-10 { transform: skewY(10deg); }
+
+/* ---------- Hover/Focus Helpers ---------- */
+.hover-scale, .hv-sc:hover { transform: scale(1.05); transition: transform 0.2s ease-in-out; }
+.hover-rotate, .hv-rt:hover { transform: rotate(3deg); transition: transform 0.2s ease-in-out; }
+.hover-fade, .hv-fd:hover { opacity: 0.8; transition: opacity 0.3s ease; }
+
+/* ---------- Basic Animation Utilities ---------- */
+.animate-none, .ani-n { animation: none; }
+.animate-spin, .ani-spin { animation: spin 1s linear infinite; }
+.animate-ping, .ani-ping { animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
+.animate-pulse, .ani-pulse { animation: pulse 2s ease-in-out infinite; }
+.animate-bounce, .ani-bounce { animation: bounce 1.5s infinite; }
+.animate-fade-in, .ani-fadein { animation: fade-in 0.8s ease forwards; }
+.animate-fade-out, .ani-fadeout { animation: fade-out 0.8s ease forwards; }
+
+/* ---------- Keyframes ---------- */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50% { transform: translateY(-10px); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ---------- Animation Duration ---------- */
+.anim-dur-500, .ad-500 { animation-duration: 0.5s; }
+.anim-dur-1s, .ad-1 { animation-duration: 1s; }
+.anim-dur-2s, .ad-2 { animation-duration: 2s; }
+.anim-dur-3s, .ad-3 { animation-duration: 3s; }
+
+/* ---------- Animation Delay ---------- */
+.anim-delay-0, .adel-0 { animation-delay: 0s; }
+.anim-delay-1, .adel-1 { animation-delay: 1s; }
+.anim-delay-2, .adel-2 { animation-delay: 2s; }
+
+/* ---------- Animation Direction ---------- */
+.anim-normal, .adn-n { animation-direction: normal; }
+.anim-reverse, .adn-r { animation-direction: reverse; }
+.anim-alt, .adn-a { animation-direction: alternate; }
+.anim-alt-rev, .adn-ar { animation-direction: alternate-reverse; }
+
+/* ---------- Animation Fill Mode ---------- */
+.fill-none, .fil-n { animation-fill-mode: none; }
+.fill-forwards, .fil-f { animation-fill-mode: forwards; }
+.fill-backwards, .fil-b { animation-fill-mode: backwards; }
+.fill-both, .fil-bt { animation-fill-mode: both; }
+
+/* ---------- Animation Iteration ---------- */
+.loop-1, .lp-1 { animation-iteration-count: 1; }
+.loop-infinite, .lp-inf { animation-iteration-count: infinite; }
+
+/* ---------- Preset Effects ---------- */
+.animate-slide-in, .ani-slidein {
+  animation: slide-in 0.8s ease forwards;
+}
+.animate-slide-up, .ani-slideup {
+  animation: slide-up 0.8s ease forwards;
+}
+.animate-zoom-in, .ani-zoomin {
+  animation: zoom-in 0.8s ease forwards;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes zoom-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
