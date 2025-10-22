@@ -1,0 +1,26 @@
+{
+  "name": "baseframe-css",
+  "version": "1.0.0",
+  "description": "BaseFrame — A lightweight modular CSS utility framework.",
+  "main": "baseframe.css",
+  "style": "baseframe.min.css",
+  "keywords": [
+    "css",
+    "framework",
+    "utility-first",
+    "baseframe",
+    "modular-css"
+  ],
+  "author": "Ali Hassan",
+  "license": "MIT",
+  "scripts": {
+    "build": "postcss baseframe.css -o baseframe.min.css --env production",
+    "watch": "postcss baseframe.css -o baseframe.min.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^6.1.2",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^10.1.0"
+  }
+}
