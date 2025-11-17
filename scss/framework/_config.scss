@@ -1,0 +1,56 @@
+// framework/_config.scss
+@use "sass:map";
+@use "sass:math";
+
+/// Mode: "compact" uses scale maps; "full" generates numeric ranges (more CSS)
+$utility-mode: compact !default;
+
+/// Breakpoints map (keys used for responsive variants)
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+/// Grid
+$grid-columns: 12 !default;
+$gutter: 1rem !default;
+
+/// Spacing scale (compact). Keys are tokens used in class names.
+$spacing-scale: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 3rem
+) !default;
+
+/// Size percent steps (compact)
+$size-percent-steps: (0, 5, 10, 25, 33, 50, 66, 75, 100) !default;
+
+/// Font size scale (rem)
+$font-scale: (
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: 1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  xxl: 1.5rem
+) !default;
+
+/// Radius scale
+$radius-scale: (
+  none: 0,
+  sm: 0.25rem,
+  md: 0.5rem,
+  lg: 1rem,
+  full: 9999px
+) !default;
+
+/// Misc toggles
+$include-negatives: true !default;
+$include-important: false !default;
+$include-tr-td: true !default;

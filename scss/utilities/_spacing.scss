@@ -1,0 +1,64 @@
+// utilities/_spacing.scss
+@use "../framework/config" as cfg;
+@use "../framework/helpers" as h;
+@use "sass:list";
+
+/// Generate spacing utilities from $spacing-scale
+@each $token, $val in cfg.$spacing-scale {
+  $tk: h.tokenize($token);
+
+  /* margins */
+  .m-#{$tk} { margin: #{$val}; }
+  .mt-#{$tk} { margin-top: #{$val}; }
+  .mb-#{$tk} { margin-bottom: #{$val}; }
+  .ml-#{$tk} { margin-left: #{$val}; }
+  .mr-#{$tk} { margin-right: #{$val}; }
+  .mx-#{$tk} { margin-left: #{$val}; margin-right: #{$val}; }
+  .my-#{$tk} { margin-top: #{$val}; margin-bottom: #{$val}; }
+
+  /* padding */
+  .p-#{$tk} { padding: #{$val}; }
+  .pt-#{$tk} { padding-top: #{$val}; }
+  .pb-#{$tk} { padding-bottom: #{$val}; }
+  .pl-#{$tk} { padding-left: #{$val}; }
+  .pr-#{$tk} { padding-right: #{$val}; }
+  .px-#{$tk} { padding-left: #{$val}; padding-right: #{$val}; }
+  .py-#{$tk} { padding-top: #{$val}; padding-bottom: #{$val}; }
+
+  /* important variants if enabled */
+  @if cfg.$include-important {
+    .mi-#{$tk} { margin: #{$val} !important; }
+    .pi-#{$tk} { padding: #{$val} !important; }
+  }
+
+  /* negative margins (use n prefix) */
+  @if cfg.$include-negatives and $val != 0 {
+    .m-n#{$tk} { margin: -#{$val}; }
+    .mt-n#{$tk} { margin-top: -#{$val}; }
+    .mb-n#{$tk} { margin-bottom: -#{$val}; }
+    .ml-n#{$tk} { margin-left: -#{$val}; }
+    .mr-n#{$tk} { margin-right: -#{$val}; }
+  }
+
+  /* tr > td table helpers if enabled */
+  @if cfg.$include-tr-td {
+    tr.p-#{$tk} > td { padding: #{$val}; }
+    tr.pt-#{$tk} > td { padding-top: #{$val}; }
+    tr.pb-#{$tk} > td { padding-bottom: #{$val}; }
+  }
+}
+
+/* Responsive spacing variants (prefix with breakpoint + :) */
+@each $label, $bp in cfg.$breakpoints {
+  @if $bp == 0 or $bp == 0px {
+    @each $token, $val in cfg.$spacing-scale {
+      .#{$label}\:m-#{h.tokenize($token)} { margin: $val; }
+    }
+  } @else {
+    @media (min-width: $bp) {
+      @each $token, $val in cfg.$spacing-scale {
+        .#{$label}\:m-#{h.tokenize($token)} { margin: $val; }
+      }
+    }
+  }
+}

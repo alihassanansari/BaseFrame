@@ -1,0 +1,75 @@
+// utilities/_grid.scss
+@use "sass:math";
+@use "sass:map";
+
+@use "../framework/config" as cfg;
+@use "../framework/helpers" as h;
+
+/// Basic row/col system with responsive span utilities
+$cfgGutter: cfg.$gutter !default;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-#{$cfgGutter} / 2);
+  margin-right: calc(-#{$cfgGutter} / 2);
+  box-sizing: border-box;
+}
+
+.col {
+  padding-left: calc(#{$cfgGutter} / 2);
+  padding-right: calc(#{$cfgGutter} / 2);
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* column spans */
+@for $i from 1 through cfg.$grid-columns {
+  $pct: math.div($i, cfg.$grid-columns) * 100%;
+  .col-span-#{$i} {
+    flex: 0 0 #{$pct};
+    max-width: #{$pct};
+  }
+  /* responsive variants for each breakpoint */
+  @each $label, $bp in cfg.$breakpoints {
+    @if $bp != 0 and $bp != 0px {
+      @media (min-width: $bp) {
+        .#{$label}\:col-span-#{$i} {
+          flex: 0 0 #{$pct};
+          max-width: #{$pct};
+        }
+      }
+    } @else {
+      .xs\:col-span-#{$i} { flex: 0 0 #{$pct}; max-width: #{$pct}; }
+    }
+  }
+}
+
+/* auto column and helpers */
+.col-auto { flex: 0 0 auto; width: auto; max-width: none; }
+.col-fill { flex: 1 1 0%; min-width: 0; }
+
+/* container utility (max-width by breakpoint) */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(#{$cfgGutter} / 2);
+  padding-right: calc(#{$cfgGutter} / 2);
+  box-sizing: border-box;
+}
+@media (min-width: map.get(cfg.$breakpoints, sm)) { .container { max-width: 540px; } }
+@media (min-width: map.get(cfg.$breakpoints, md)) { .container { max-width: 720px; } }
+@media (min-width: map.get(cfg.$breakpoints, lg)) { .container { max-width: 960px; } }
+@media (min-width: map.get(cfg.$breakpoints, xl)) { .container { max-width: 1140px; } }
+
+/* gap helper (for grid/flex) */
+.gap-0 { gap: 0; }
+.gap-1 { gap: map.get(cfg.$spacing-scale, 1); }
+.gap-2 { gap: map.get(cfg.$spacing-scale, 2); }
+.gap-3 { gap: map.get(cfg.$spacing-scale, 3); }
+.gap-4 { gap: map.get(cfg.$spacing-scale, 4); }
+.gap-5 { gap: map.get(cfg.$spacing-scale, 5); }
+
+/* no-gutter helper */
+.no-gutter > .col { padding-left: 0; padding-right: 0; }

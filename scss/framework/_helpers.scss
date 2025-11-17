@@ -1,0 +1,101 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:selector";
+@use "sass:string";
+@use "sass:meta";
+
+@forward "sass:math";
+
+@use "../framework/config" as cfg;
+
+@function bp($key) {
+  @return map.get(cfg.$breakpoints, $key);
+}
+
+@function pct($n) {
+  @if meta.type-of($n) == "number" {
+    @return ($n * 1%) / 1%;
+  }
+  @return $n;
+}
+
+@function frac-pct($num, $den) {
+  @return math.div($num, $den) * 100%;
+}
+
+/* recursive str-replace (works on older Sass too) */
+@function str-replace($string, $search, $replace: '') {
+  $index: string.index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function _normalize-string($s) {
+  // ensure string form
+  $s: "#{$s}";
+
+  // fallback to recursive str-replace
+  $s: str-replace($s, "/", "s");
+  $s: str-replace($s, ".", "p");
+  $s: str-replace($s, "%", "p");
+  $s: str-replace($s, " ", "-");
+  @return $s;
+}
+
+@function tokenize($value) {
+  $s: _normalize-string($value);
+
+  // get first char (use module slice if present)
+  $first: string.slice($s, 1, 1);
+
+  // check if first char is a digit (use module index if present)
+  @if (string.index("0123456789", $first)) {
+    @return "n#{$s}";
+  }
+  @return $s;
+}
+
+@function neg-token($value) {
+  @if meta.type-of($value) == "number" and $value < 0 {
+    $absstr: _normalize-string(abs($value));
+    @return "n#{$absstr}";
+  }
+  @return tokenize($value);
+}
+
+@function imp($flag: null) {
+  @if $flag == true or cfg.$include-important {
+    @return " !important";
+  }
+  @return "";
+}
+
+@mixin responsive($map: cfg.$breakpoints) {
+  @each $label, $bp in $map {
+    @if $bp == 0 or $bp == 0px {
+      @content;
+    } @else {
+      @media (min-width: $bp) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin bp-variants($class, $map: cfg.$breakpoints) {
+  @each $label, $bp in $map {
+    $suffix: if($bp == 0 or $bp == 0px, "", "-#{$label}");
+    @if $bp == 0 or $bp == 0px {
+      #{$class} { @content; }
+    } @else {
+      @media (min-width: $bp) {
+        #{$class} { @content; }
+      }
+    }
+  }
+}

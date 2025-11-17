@@ -1,0 +1,27 @@
+// utilities/_typography.scss
+@use "../framework/config" as cfg;
+@use "../framework/helpers" as h;
+
+/// font sizes
+@each $name, $val in cfg.$font-scale {
+  .text-#{$name} { font-size: #{$val}; }
+  .fs-#{$name} { font-size: #{$val}; }
+}
+
+/* pixel fallback sizes */
+@for $i from 8 through 32 {
+  .fs-#{$i}px { font-size: #{$i}px; }
+}
+
+/* line-height utilities */
+.leading-none { line-height: 1; }
+.leading-tight { line-height: 1.25; }
+.leading-normal { line-height: 1.5; }
+.leading-loose { line-height: 2; }
+
+/* text utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

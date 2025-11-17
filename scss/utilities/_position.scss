@@ -1,0 +1,99 @@
+// utilities/_position.scss
+@use "sass:math";
+@use "sass:meta";
+
+@use "../framework/config" as cfg;
+@use "../framework/helpers" as h;
+
+/// position types
+.static  { position: static; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed   { position: fixed; }
+.sticky  { position: sticky; top: 0; }
+
+/* inset scale (compact): use spacing-scale and a few percent steps */
+$inset-percent-steps: (0, 25, 50, 75, 100);
+
+/// Generate inset classes from spacing scale (rem/px tokens)
+@each $token, $val in cfg.$spacing-scale {
+  $t: h.tokenize($token);
+
+  .top-#{$t}  { top: #{$val}; }
+  .right-#{$t} { right: #{$val}; }
+  .bottom-#{$t} { bottom: #{$val}; }
+  .left-#{$t}  { left: #{$val}; }
+
+  .inset-#{$t} { top: #{$val}; right: #{$val}; bottom: #{$val}; left: #{$val}; }
+
+  @if cfg.$include-negatives and $val != 0 {
+    .top-n#{$t}  { top: -#{$val}; }
+    .right-n#{$t} { right: -#{$val}; }
+    .bottom-n#{$t} { bottom: -#{$val}; }
+    .left-n#{$t}  { left: -#{$val}; }
+    .inset-n#{$t} { top: -#{$val}; right: -#{$val}; bottom: -#{$val}; left: -#{$val}; }
+  }
+
+  @if cfg.$include-important {
+    .top-#{$t}\:i  { top: #{$val} !important; }
+    .left-#{$t}\:i { left: #{$val} !important; }
+    .inset-#{$t}\:i { top: #{$val} !important; right: #{$val} !important; bottom: #{$val} !important; left: #{$val} !important; }
+  }
+}
+
+/// Generate percent inset classes
+@each $p in $inset-percent-steps {
+  $tok: h.tokenize($p);
+  $val: if(meta.type-of($p) == "number", $p * 1%, $p);
+  .top-#{$tok}p { top: $val; }
+  .right-#{$tok}p { right: $val; }
+  .bottom-#{$tok}p { bottom: $val; }
+  .left-#{$tok}p { left: $val; }
+  .inset-#{$tok}p { top: $val; right: $val; bottom: $val; left: $val; }
+
+  @if cfg.$include-negatives and $val != 0 {
+    .top-n#{$tok}p { top: -#{$val}; }
+    .inset-n#{$tok}p { top: -#{$val}; right: -#{$val}; bottom: -#{$val}; left: -#{$val}; }
+  }
+}
+
+/// full pixel/rem shortcuts (small set)
+@each $n, $v in (0:0, 1:0.25rem, 2:0.5rem, 4:1rem, 8:2rem) {
+  .top-#{$n}rem { top: #{$v}; }
+  .left-#{$n}rem { left: #{$v}; }
+  .right-#{$n}rem { right: #{$v}; }
+  .bottom-#{$n}rem { bottom: #{$v}; }
+}
+
+/// center helpers
+.top-50 { top: 50%; transform: translateY(-50%); }
+.left-50 { left: 50%; transform: translateX(-50%); }
+.center-xy { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* inset auto */
+.inset-auto { top: auto; right: auto; bottom: auto; left: auto; }
+
+/* tie into z-index helpers */
+@each $z in (0,10,50,100) {
+  .z-#{$z} { z-index: $z; }
+}
+
+/* responsive variants: prefix with breakpoint and escape colon (e.g., md\:top-1) */
+@each $label, $bp in cfg.$breakpoints {
+  @if $bp == 0 or $bp == 0px {
+    /* already covered by base classes; still output aliases if desired */
+  } @else {
+    @media (min-width: $bp) {
+      @each $token, $val in cfg.$spacing-scale {
+        .#{$label}\:top-#{h.tokenize($token)} { top: #{$val}; }
+        .#{$label}\:left-#{h.tokenize($token)} { left: #{$val}; }
+        .#{$label}\:inset-#{h.tokenize($token)} { top: #{$val}; right: #{$val}; bottom: #{$val}; left: #{$val}; }
+      }
+      @each $p in $inset-percent-steps {
+        $tok: h.tokenize($p);
+        $val: if(meta.type-of($p) == "number", $p * 1%, $p);
+        .#{$label}\:top-#{$tok}p { top: $val; }
+      }
+    }
+  }
+}

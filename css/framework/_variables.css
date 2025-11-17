@@ -1,8 +1,8 @@
 :root {
   /* Typography */
-  --font-sans: "Inter", "Segoe UI", sans-serif;
-  --font-serif: "Merriweather", serif;
-  --font-mono: "Fira Code", monospace;
+  --font-sans: "Segoe UI", "Helvetica", sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-mono: "Menlo", "Consolas","Ubuntu Mono" monospace;
 
   /* Font sizes */
   --text-xs: 0.75rem;

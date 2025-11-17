@@ -1,29 +1,1384 @@
+:root {
+  /* Derived Tones */
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 70%, white);
+  --color-primary-dark: color-mix(in srgb, var(--color-primary) 70%, black);
+
+  --color-success-light: color-mix(in srgb, var(--color-success) 70%, white);
+  --color-danger-light: color-mix(in srgb, var(--color-danger) 70%, white);
+
+  --color-surface: color-mix(in srgb, var(--color-bg) 90%, var(--color-fg) 10%);
+  --color-border: color-mix(in srgb, var(--color-muted) 50%, var(--color-bg) 50%);
+}
+:root {
+  /* Typography */
+  --font-sans: "Segoe UI", "Helvetica", sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-mono: "Menlo", "Consolas","Ubuntu Mono" monospace;
+
+  /* Font sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+
+  /* Radii */
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-round: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.1);
+  --shadow-md: 0 3px 6px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 20px rgba(0,0,0,0.2);
+
+  /* Colors */
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-muted: #666666;
+  --color-primary: #0070f3;
+  --color-secondary: #1b1f23;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  /* Transition */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms;
+  --transition-base: 300ms;
+  --transition-slow: 600ms;
+}
+/* Base resets and normalization */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Document
+   ========================================================================== */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+a {
+  background-color: transparent;
+}
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+/* Custom CSS
+   ========================================================================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
 /* =========================================================
-   BaseFrame CSS Framework
-   Modular Utility-First Architecture
-   Author: Ali Hassan
-   Version: 1.0.0
+   BaseFrame: Accessibility & Print
+   Utilities for A11y and media-specific rendering
    ========================================================= */
 
-/* ============================================
-   Core Framework Files
-   ============================================ */
-@import url("./css/framework/_variables.css");
-@import url("./css/framework/_color.css");
+/* ===============================
+   Accessibility Helpers
+   =============================== */
 
-/* ============================================
-   Utility Modules
-   ============================================ */
-@import url("./css/modules/typography.css");
-@import url("./css/modules/font.css");
-@import url("./css/modules/colors.css");
-@import url("./css/modules/borders-radius.css");
-@import url("./css/modules/shadows-outline-filters.css");
-@import url("./css/modules/transitions-animations.css");
-@import url("./css/modules/backgrounds-clip-mask.css");
-@import url("./css/modules/visibility-scroll-resize.css");
-@import url("./css/modules/accessibility-print.css");
+.sr-only, .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary, #0078d7);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+  border-radius: 0.25rem;
+  transition: top 0.3s ease;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+[aria-hidden="true"] {
+  display: none !important;
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+.focus-outline, .fcs-outl {
+  outline: 2px solid var(--color-focus, #2684ff);
+  outline-offset: 2px;
+}
+
+.no-outline:focus {
+  outline: none !important;
+}
+
+[role="button"],
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+}
+
+[disabled], .disabled, [aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ===============================
+   Reduced Motion Preference
+   =============================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===============================
+   Contrast & Color-Scheme
+   =============================== */
+@media (prefers-contrast: more) {
+  * {
+    border-color: var(--color-contrast, #000) !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    background-color: var(--color-bg-dark, #121212);
+    color: var(--color-text-dark, #f2f2f2);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    background-color: var(--color-bg-light, #ffffff);
+    color: var(--color-text-light, #111111);
+  }
+}
+
+/* ===============================
+   Print Styles
+   =============================== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  @page {
+    margin: 1cm;
+  }
+
+  .no-print, .nopr {
+    display: none !important;
+  }
+
+  .print-only, .prnt-only {
+    display: block !important;
+  }
+}
 /* =========================================================
-   End of BaseFrame Framework
+   BaseFrame – Backgrounds, Clip, Mask, Object-fit, Aspect-ratio
+   ---------------------------------------------------------
+   Includes background colors, gradients, patterns, image
+   positioning, clipping, masking, object fitting, and ratio utilities.
    ========================================================= */
+
+/* ---------- Background Colors ---------- */
+.bg-transparent, .bg-t { background-color: transparent; }
+.bg-primary, .bg-p { background-color: var(--color-primary); }
+.bg-secondary, .bg-s { background-color: var(--color-secondary); }
+.bg-accent, .bg-a { background-color: var(--color-accent); }
+.bg-success, .bg-suc { background-color: var(--color-success); }
+.bg-error, .bg-err { background-color: var(--color-error); }
+.bg-warning, .bg-w { background-color: var(--color-warning); }
+.bg-info, .bg-i { background-color: var(--color-info); }
+.bg-light, .bg-l { background-color: var(--color-light); }
+.bg-dark, .bg-d { background-color: var(--color-dark); }
+
+/* ---------- Background Opacity ---------- */
+.bg-opacity-0, .bgo-0 { background-color: color-mix(in srgb, var(--color-primary) 0%, transparent); }
+.bg-opacity-25, .bgo-25 { background-color: color-mix(in srgb, var(--color-primary) 25%, transparent); }
+.bg-opacity-50, .bgo-50 { background-color: color-mix(in srgb, var(--color-primary) 50%, transparent); }
+.bg-opacity-75, .bgo-75 { background-color: color-mix(in srgb, var(--color-primary) 75%, transparent); }
+.bg-opacity-100, .bgo-100 { background-color: color-mix(in srgb, var(--color-primary) 100%, transparent); }
+
+/* ---------- Background Images ---------- */
+.bg-none, .bg-n { background-image: none; }
+.bg-cover, .bg-cv { background-size: cover; }
+.bg-contain, .bg-ct { background-size: contain; }
+.bg-auto, .bg-a { background-size: auto; }
+
+/* ---------- Background Position ---------- */
+.bg-center, .bg-c { background-position: center; }
+.bg-top, .bg-tp { background-position: top; }
+.bg-bottom, .bg-b { background-position: bottom; }
+.bg-left, .bg-lf { background-position: left; }
+.bg-right, .bg-r { background-position: right; }
+
+/* ---------- Background Repeat ---------- */
+.bg-repeat, .bg-rp { background-repeat: repeat; }
+.bg-no-repeat, .bg-nr { background-repeat: no-repeat; }
+.bg-repeat-x, .bg-rx { background-repeat: repeat-x; }
+.bg-repeat-y, .bg-ry { background-repeat: repeat-y; }
+
+/* ---------- Background Attachment ---------- */
+.bg-fixed, .bg-fx { background-attachment: fixed; }
+.bg-scroll, .bg-scr { background-attachment: scroll; }
+
+/* ---------- Gradients ---------- */
+.bg-gradient, .bg-g {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-top, .bg-gt {
+  background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-bottom, .bg-gb {
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-left, .bg-gl {
+  background: linear-gradient(to left, var(--color-primary), var(--color-secondary));
+}
+.bg-gradient-to-right, .bg-gr {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+.bg-radial, .bg-rd {
+  background: radial-gradient(circle, var(--color-primary), var(--color-secondary));
+}
+
+/* ---------- Background Blend ---------- */
+.bg-blend-normal, .bg-bn { background-blend-mode: normal; }
+.bg-blend-multiply, .bg-bm { background-blend-mode: multiply; }
+.bg-blend-screen, .bg-bs { background-blend-mode: screen; }
+.bg-blend-overlay, .bg-bo { background-blend-mode: overlay; }
+.bg-blend-color, .bg-bc { background-blend-mode: color; }
+.bg-blend-luminosity, .bg-blu { background-blend-mode: luminosity; }
+
+/* ---------- Clip Path ---------- */
+.clip-none, .clp-n { clip-path: none; }
+.clip-circle, .clp-c { clip-path: circle(50%); }
+.clip-ellipse, .clp-e { clip-path: ellipse(60% 40% at center); }
+.clip-polygon, .clp-p { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+.clip-inset, .clp-i { clip-path: inset(10%); }
+
+/* ---------- Masking ---------- */
+.mask-none, .msk-n { mask: none; }
+.mask-circle, .msk-c { mask-image: radial-gradient(circle, #000 60%, transparent 61%); }
+.mask-gradient, .msk-g { mask-image: linear-gradient(to bottom, #000 80%, transparent 100%); }
+.mask-invert, .msk-i { mask-composite: exclude; }
+
+/* ---------- Object Fit ---------- */
+.obj-contain, .obj-ct { object-fit: contain; }
+.obj-cover, .obj-cv { object-fit: cover; }
+.obj-fill, .obj-f { object-fit: fill; }
+.obj-scale, .obj-s { object-fit: scale-down; }
+.obj-none, .obj-n { object-fit: none; }
+
+/* ---------- Object Position ---------- */
+.obj-center, .obj-c { object-position: center; }
+.obj-top, .obj-t { object-position: top; }
+.obj-bottom, .obj-b { object-position: bottom; }
+.obj-left, .obj-l { object-position: left; }
+.obj-right, .obj-r { object-position: right; }
+
+/* ---------- Aspect Ratio ---------- */
+.ratio-auto, .rat-a { aspect-ratio: auto; }
+.ratio-1x1, .rat-1 { aspect-ratio: 1 / 1; }
+.ratio-16x9, .rat-169 { aspect-ratio: 16 / 9; }
+.ratio-4x3, .rat-43 { aspect-ratio: 4 / 3; }
+.ratio-21x9, .rat-219 { aspect-ratio: 21 / 9; }
+.ratio-3x2, .rat-32 { aspect-ratio: 3 / 2; }
+
+/* ---------- Overlay & Blend Presets ---------- */
+.bg-overlay, .bg-ov {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)
+  ), var(--color-primary);
+  background-blend-mode: overlay;
+}
+.bg-image-darken, .bg-id {
+  background-color: rgba(0,0,0,0.5);
+  background-blend-mode: multiply;
+}
+
+/* ---------- Pattern Backgrounds ---------- */
+.bg-dots, .bg-dt {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+.bg-grid, .bg-grd {
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px),
+                    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.bg-diagonal, .bg-dg {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-light),
+    var(--color-light) 10px,
+    var(--color-primary) 10px,
+    var(--color-primary) 20px
+  );
+}
+
+/* ---------- Advanced Mix Utilities ---------- */
+.mix-soft-light, .mix-sl { mix-blend-mode: soft-light; }
+.mix-hard-light, .mix-hl { mix-blend-mode: hard-light; }
+.mix-darken, .mix-dk { mix-blend-mode: darken; }
+.mix-lighten, .mix-lt { mix-blend-mode: lighten; }
+/* =========================================================
+   BaseFrame – Borders & Radius Utilities
+   ---------------------------------------------------------
+   Covers border style, width, side control, color (via vars),
+   border radius (shape), and outline.
+   ========================================================= */
+
+/* ---------- Border Style ---------- */
+.border-solid, .bd-sd { border-style: solid; }
+.border-dashed, .bd-ds { border-style: dashed; }
+.border-dotted, .bd-dt { border-style: dotted; }
+.border-double, .bd-db { border-style: double; }
+.border-none, .bd-n { border-style: none; }
+
+/* ---------- Border Width ---------- */
+.border-0, .bd-0 { border-width: 0; }
+.border-1, .bd-1 { border-width: 1px; }
+.border-2, .bd-2 { border-width: 2px; }
+.border-3, .bd-3 { border-width: 3px; }
+.border-4, .bd-4 { border-width: 4px; }
+.border-5, .bd-5 { border-width: 5px; }
+
+/* ---------- Border Position (Individual Sides) ---------- */
+.border-top, .bd-t { border-top: 1px solid currentColor; }
+.border-right, .bd-r { border-right: 1px solid currentColor; }
+.border-bottom, .bd-b { border-bottom: 1px solid currentColor; }
+.border-left, .bd-l { border-left: 1px solid currentColor; }
+
+.border-top-0, .bd-t0 { border-top: none; }
+.border-right-0, .bd-r0 { border-right: none; }
+.border-bottom-0, .bd-b0 { border-bottom: none; }
+.border-left-0, .bd-l0 { border-left: none; }
+
+/* ---------- Border Radius ---------- */
+.radius-none, .r-n { border-radius: 0; }
+.radius-sm, .r-s { border-radius: var(--radius-sm); }
+.radius-md, .r-m { border-radius: var(--radius-md); }
+.radius-lg, .r-l { border-radius: var(--radius-lg); }
+.radius-round, .r-r { border-radius: var(--radius-round); }
+.radius-full, .r-f { border-radius: 50%; }
+
+/* ---------- Border Corner Control ---------- */
+.radius-tl, .r-tl { border-top-left-radius: var(--radius-md); }
+.radius-tr, .r-tr { border-top-right-radius: var(--radius-md); }
+.radius-bl, .r-bl { border-bottom-left-radius: var(--radius-md); }
+.radius-br, .r-br { border-bottom-right-radius: var(--radius-md); }
+
+/* ---------- Border Collapse & Spacing ---------- */
+.border-collapse, .bd-c { border-collapse: collapse; }
+.border-separate, .bd-sp { border-collapse: separate; }
+.border-spacing-sm, .bd-sp-s { border-spacing: 0.25rem; }
+.border-spacing-md, .bd-sp-m { border-spacing: 0.5rem; }
+.border-spacing-lg, .bd-sp-l { border-spacing: 1rem; }
+
+/* ---------- Outline Styles ---------- */
+.outline-none, .ol-n { outline: none; }
+.outline-solid, .ol-s { outline-style: solid; }
+.outline-dashed, .ol-d { outline-style: dashed; }
+.outline-dotted, .ol-t { outline-style: dotted; }
+.outline-double, .ol-db { outline-style: double; }
+
+/* ---------- Outline Width ---------- */
+.outline-1, .ol-1 { outline-width: 1px; }
+.outline-2, .ol-2 { outline-width: 2px; }
+.outline-3, .ol-3 { outline-width: 3px; }
+.outline-4, .ol-4 { outline-width: 4px; }
+
+/* ---------- Outline Offset ---------- */
+.outline-offset-0, .ol-o0 { outline-offset: 0; }
+.outline-offset-1, .ol-o1 { outline-offset: 2px; }
+.outline-offset-2, .ol-o2 { outline-offset: 4px; }
+.outline-offset-3, .ol-o3 { outline-offset: 6px; }
+
+/* ---------- Border Image (Basic Support) ---------- */
+.border-img-none, .bd-img-n { border-image: none; }
+.border-img-repeat, .bd-img-r { border-image-repeat: stretch; }
+.border-img-slice, .bd-img-s { border-image-slice: 30; }
+
+/* ---------- Rounded Edge Combos ---------- */
+.radius-top, .r-t {
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+.radius-bottom, .r-b {
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+.radius-left, .r-lf {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+.radius-right, .r-rt {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* ---------- Border Visibility ---------- */
+.border-visible, .bd-v { border-style: solid; }
+.border-hidden, .bd-h { border-style: hidden; }
+/* =========================================================
+   BaseFrame – Color Utilities
+   ---------------------------------------------------------
+   Covers text color, background color, border color,
+   opacity, and contrast adjustments.
+   ========================================================= */
+
+/* ---------- Text Colors ---------- */
+.text-primary, .txt-p { color: var(--color-primary); }
+.text-secondary, .txt-s { color: var(--color-secondary); }
+.text-success, .txt-suc { color: var(--color-success); }
+.text-warning, .txt-w { color: var(--color-warning); }
+.text-danger, .txt-d { color: var(--color-danger); }
+.text-muted, .txt-m { color: var(--color-muted); }
+.text-light, .txt-l { color: var(--color-primary-light); }
+.text-dark, .txt-k { color: var(--color-primary-dark); }
+.text-bg, .txt-bg { color: var(--color-bg); }
+.text-fg, .txt-fg { color: var(--color-fg); }
+.text-inherit, .txt-i { color: inherit; }
+
+/* ---------- Background Colors ---------- */
+.bg-primary, .bg-p { background-color: var(--color-primary); }
+.bg-secondary, .bg-s { background-color: var(--color-secondary); }
+.bg-success, .bg-suc { background-color: var(--color-success); }
+.bg-warning, .bg-w { background-color: var(--color-warning); }
+.bg-danger, .bg-d { background-color: var(--color-danger); }
+.bg-light, .bg-l { background-color: var(--color-primary-light); }
+.bg-dark, .bg-k { background-color: var(--color-primary-dark); }
+.bg-surface, .bg-sf { background-color: var(--color-surface); }
+.bg-none, .bg-n { background-color: transparent; }
+
+/* ---------- Border Colors ---------- */
+.border-primary, .bd-p { border-color: var(--color-primary); }
+.border-secondary, .bd-s { border-color: var(--color-secondary); }
+.border-success, .bd-suc { border-color: var(--color-success); }
+.border-warning, .bd-w { border-color: var(--color-warning); }
+.border-danger, .bd-d { border-color: var(--color-danger); }
+.border-light, .bd-l { border-color: var(--color-primary-light); }
+.border-dark, .bd-k { border-color: var(--color-primary-dark); }
+.border-muted, .bd-m { border-color: var(--color-muted); }
+.border-bg, .bd-bg { border-color: var(--color-bg); }
+.border-fg, .bd-fg { border-color: var(--color-fg); }
+
+/* ---------- Transparent Variants ---------- */
+.text-transparent, .txt-t { color: transparent; }
+.bg-transparent, .bg-t { background-color: transparent; }
+.border-transparent, .bd-t { border-color: transparent; }
+
+/* ---------- Gradient Backgrounds ---------- */
+.bg-gradient-primary, .bg-gp {
+  background: linear-gradient(135deg,
+    var(--color-primary-light),
+    var(--color-primary)
+  );
+}
+.bg-gradient-success, .bg-gs {
+  background: linear-gradient(135deg,
+    var(--color-success-light),
+    var(--color-success)
+  );
+}
+.bg-gradient-danger, .bg-gd {
+  background: linear-gradient(135deg,
+    var(--color-danger-light),
+    var(--color-danger)
+  );
+}
+
+/* ---------- Color Mix (Dynamic) ---------- */
+.bg-mix-primary, .bg-mp {
+  background-color: color-mix(in srgb, var(--color-primary) 70%, white);
+}
+.bg-mix-secondary, .bg-ms {
+  background-color: color-mix(in srgb, var(--color-secondary) 70%, white);
+}
+.text-mix-fg, .txt-mf {
+  color: color-mix(in srgb, var(--color-fg) 70%, var(--color-bg));
+}
+
+/* ---------- Opacity Utilities ---------- */
+.opacity-0, .op-0 { opacity: 0; }
+.opacity-25, .op-25 { opacity: 0.25; }
+.opacity-50, .op-50 { opacity: 0.5; }
+.opacity-75, .op-75 { opacity: 0.75; }
+.opacity-100, .op-100 { opacity: 1; }
+
+/* ---------- Mix-Blend Modes ---------- */
+.mix-normal, .mx-n { mix-blend-mode: normal; }
+.mix-multiply, .mx-m { mix-blend-mode: multiply; }
+.mix-screen, .mx-s { mix-blend-mode: screen; }
+.mix-overlay, .mx-o { mix-blend-mode: overlay; }
+.mix-darken, .mx-d { mix-blend-mode: darken; }
+.mix-lighten, .mx-l { mix-blend-mode: lighten; }
+.mix-color, .mx-c { mix-blend-mode: color; }
+.mix-luminosity, .mx-lu { mix-blend-mode: luminosity; }
+
+/* ---------- Contrast & Filter Colors ---------- */
+.filter-contrast-50, .flt-c50 { filter: contrast(0.5); }
+.filter-contrast-100, .flt-c100 { filter: contrast(1); }
+.filter-contrast-150, .flt-c150 { filter: contrast(1.5); }
+
+.filter-bright-50, .flt-b50 { filter: brightness(0.5); }
+.filter-bright-100, .flt-b100 { filter: brightness(1); }
+.filter-bright-150, .flt-b150 { filter: brightness(1.5); }
+
+.filter-invert, .flt-inv { filter: invert(1); }
+.filter-none, .flt-n { filter: none; }
+
+/* ---------- Text Selection Color ---------- */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+/* =========================================================
+   BaseFrame – Font Utilities
+   ---------------------------------------------------------
+   Covers font-family, size, weight, style, variant,
+   kerning, smoothing, and rendering options.
+   ========================================================= */
+
+/* ---------- Font Family ---------- */
+.font-sans, .f-sans { font-family: var(--font-sans); }
+.font-serif, .f-serif { font-family: var(--font-serif); }
+.font-mono, .f-mono { font-family: var(--font-mono); }
+
+/* ---------- Font Style ---------- */
+.font-normal, .f-n { font-style: normal; }
+.font-italic, .f-i { font-style: italic; }
+.font-oblique, .f-o { font-style: oblique; }
+
+/* ---------- Font Weight ---------- */
+.font-thin, .f-th { font-weight: 100; }
+.font-extralight, .f-xl { font-weight: 200; }
+.font-light, .f-l { font-weight: 300; }
+.font-normal, .f-n { font-weight: 400; }
+.font-medium, .f-m { font-weight: 500; }
+.font-semibold, .f-sb { font-weight: 600; }
+.font-bold, .f-b { font-weight: 700; }
+.font-extrabold, .f-xb { font-weight: 800; }
+.font-black, .f-bl { font-weight: 900; }
+
+/* ---------- Font Size ---------- */
+.font-xs, .f-xs { font-size: var(--text-xs); }
+.font-sm, .f-sm { font-size: var(--text-sm); }
+.font-base, .f-base { font-size: var(--text-base); }
+.font-lg, .f-lg { font-size: var(--text-lg); }
+.font-xl, .f-xl { font-size: var(--text-xl); }
+.font-2xl, .f-2xl { font-size: var(--text-2xl); }
+.font-3xl, .f-3xl { font-size: var(--text-3xl); }
+.font-100, .f-100 { font-size: 100%; }
+.font-125, .f-125 { font-size: 125%; }
+.font-150, .f-150 { font-size: 150%; }
+.font-200, .f-200 { font-size: 200%; }
+
+/* ---------- Font Variant ---------- */
+.font-smallcaps, .f-sc { font-variant: small-caps; }
+.font-normalcaps, .f-nc { font-variant: normal; }
+.font-tabular, .f-tab { font-variant-numeric: tabular-nums; }
+.font-lining, .f-lin { font-variant-numeric: lining-nums; }
+.font-oldstyle, .f-old { font-variant-numeric: oldstyle-nums; }
+
+/* ---------- Font Kerning ---------- */
+.font-kerning-auto, .f-ka { font-kerning: auto; }
+.font-kerning-normal, .f-kn { font-kerning: normal; }
+.font-kerning-none, .f-k0 { font-kerning: none; }
+
+/* ---------- Optical Sizing ---------- */
+.font-optical-auto, .f-opt-a { font-optical-sizing: auto; }
+.font-optical-none, .f-opt-n { font-optical-sizing: none; }
+
+/* ---------- Font Stretch ---------- */
+.font-condensed, .f-cond { font-stretch: condensed; }
+.font-expanded, .f-exp { font-stretch: expanded; }
+.font-ultracondensed, .f-uc { font-stretch: ultra-condensed; }
+.font-ultraexpanded, .f-ue { font-stretch: ultra-expanded; }
+
+/* ---------- Line Height ---------- */
+.font-line-tight, .f-lt { line-height: 1.1; }
+.font-line-normal, .f-ln { line-height: 1.5; }
+.font-line-loose, .f-ll { line-height: 2; }
+
+/* ---------- Font Smoothness ---------- */
+.font-antialiased, .f-aa {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.font-subpixel, .f-sp {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* ---------- Text Rendering ---------- */
+.font-render-auto, .f-ra { text-rendering: auto; }
+.font-render-legible, .f-rl { text-rendering: optimizeLegibility; }
+.font-render-speed, .f-rs { text-rendering: geometricPrecision; }
+
+/* ---------- Font Feature Settings ---------- */
+.font-liga, .f-liga { font-feature-settings: "liga"; }
+.font-noliga, .f-noliga { font-feature-settings: "liga" 0; }
+.font-alt, .f-alt { font-feature-settings: "salt"; }
+.font-num, .f-num { font-feature-settings: "tnum"; }
+
+/* ---------- Font Variation Settings ---------- */
+.font-variation-normal, .f-var-n { font-variation-settings: normal; }
+.font-variation-wide, .f-var-w { font-variation-settings: "wdth" 120; }
+.font-variation-bold, .f-var-b { font-variation-settings: "wght" 700; }
+.font-variation-thin, .f-var-t { font-variation-settings: "wght" 300; }
+
+/* ---------- Font Language Override ---------- */
+.font-lang-none, .f-lang-n { font-language-override: normal; }
+.font-lang-latn, .f-lang-l { font-language-override: "latn"; }
+.font-lang-grek, .f-lang-g { font-language-override: "grek"; }
+.font-lang-cyrl, .f-lang-c { font-language-override: "cyrl"; }
+/* =========================================================
+   BaseFrame – Shadows, Outline & Filters
+   ---------------------------------------------------------
+   Covers box-shadow, text-shadow, outline effects,
+   and CSS filter utilities.
+   ========================================================= */
+
+/* ---------- Box Shadows ---------- */
+.shadow-none, .sh-n { box-shadow: none; }
+.shadow-sm, .sh-s { box-shadow: var(--shadow-sm); }
+.shadow-md, .sh-m { box-shadow: var(--shadow-md); }
+.shadow-lg, .sh-l { box-shadow: var(--shadow-lg); }
+.shadow-xl, .sh-x {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+.shadow-inner, .sh-i { box-shadow: inset 0 2px 4px rgba(0,0,0,0.15); }
+
+/* ---------- Focus / Outline Emphasis ---------- */
+.focus-outline, .f-ol {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.focus-outline-none, .f-ol-n { outline: none; }
+.focus-ring, .f-ring {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 50%, transparent);
+}
+
+/* ---------- Text Shadow (for readability highlights) ---------- */
+.text-shadow-sm, .txt-sh-s { text-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+.text-shadow-md, .txt-sh-m { text-shadow: 0 2px 2px rgba(0,0,0,0.2); }
+.text-shadow-lg, .txt-sh-l { text-shadow: 0 3px 6px rgba(0,0,0,0.3); }
+.text-shadow-none, .txt-sh-n { text-shadow: none; }
+
+/* ---------- Filter: Blur ---------- */
+.filter-blur-0, .flt-b0 { filter: blur(0); }
+.filter-blur-sm, .flt-bs { filter: blur(2px); }
+.filter-blur-md, .flt-bm { filter: blur(5px); }
+.filter-blur-lg, .flt-bl { filter: blur(10px); }
+
+/* ---------- Filter: Brightness ---------- */
+.filter-bright-50, .flt-br50 { filter: brightness(0.5); }
+.filter-bright-75, .flt-br75 { filter: brightness(0.75); }
+.filter-bright-100, .flt-br100 { filter: brightness(1); }
+.filter-bright-125, .flt-br125 { filter: brightness(1.25); }
+.filter-bright-150, .flt-br150 { filter: brightness(1.5); }
+
+/* ---------- Filter: Contrast ---------- */
+.filter-contrast-50, .flt-ct50 { filter: contrast(0.5); }
+.filter-contrast-75, .flt-ct75 { filter: contrast(0.75); }
+.filter-contrast-100, .flt-ct100 { filter: contrast(1); }
+.filter-contrast-150, .flt-ct150 { filter: contrast(1.5); }
+
+/* ---------- Filter: Grayscale ---------- */
+.filter-gray-0, .flt-g0 { filter: grayscale(0); }
+.filter-gray-50, .flt-g50 { filter: grayscale(0.5); }
+.filter-gray-100, .flt-g100 { filter: grayscale(1); }
+
+/* ---------- Filter: Hue Rotate ---------- */
+.filter-hue-0, .flt-h0 { filter: hue-rotate(0deg); }
+.filter-hue-90, .flt-h90 { filter: hue-rotate(90deg); }
+.filter-hue-180, .flt-h180 { filter: hue-rotate(180deg); }
+.filter-hue-270, .flt-h270 { filter: hue-rotate(270deg); }
+
+/* ---------- Filter: Invert ---------- */
+.filter-invert-0, .flt-i0 { filter: invert(0); }
+.filter-invert-100, .flt-i100 { filter: invert(1); }
+
+/* ---------- Filter: Saturation ---------- */
+.filter-saturate-0, .flt-s0 { filter: saturate(0); }
+.filter-saturate-50, .flt-s50 { filter: saturate(0.5); }
+.filter-saturate-100, .flt-s100 { filter: saturate(1); }
+.filter-saturate-150, .flt-s150 { filter: saturate(1.5); }
+.filter-saturate-200, .flt-s200 { filter: saturate(2); }
+
+/* ---------- Filter: Sepia ---------- */
+.filter-sepia-0, .flt-sp0 { filter: sepia(0); }
+.filter-sepia-50, .flt-sp50 { filter: sepia(0.5); }
+.filter-sepia-100, .flt-sp100 { filter: sepia(1); }
+
+/* ---------- Filter: Drop Shadow ---------- */
+.filter-dropshadow-sm, .flt-ds { filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2)); }
+.filter-dropshadow-md, .flt-dm { filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3)); }
+.filter-dropshadow-lg, .flt-dl { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); }
+
+/* ---------- Backdrop Filters ---------- */
+.backdrop-blur-sm, .bfl-bs { backdrop-filter: blur(2px); }
+.backdrop-blur-md, .bfl-bm { backdrop-filter: blur(5px); }
+.backdrop-blur-lg, .bfl-bl { backdrop-filter: blur(10px); }
+
+.backdrop-bright-125, .bfl-br { backdrop-filter: brightness(1.25); }
+.backdrop-contrast-150, .bfl-ct { backdrop-filter: contrast(1.5); }
+
+/* ---------- Combined Filter Presets ---------- */
+.filter-soft, .flt-soft {
+  filter: blur(2px) brightness(1.1) contrast(0.9);
+}
+.filter-glow, .flt-glow {
+  filter: drop-shadow(0 0 6px var(--color-primary));
+}
+.filter-none, .flt-n { filter: none; }
+
+/* ---------- Mix & Layer Effects ---------- */
+.blend-normal, .bl-n { mix-blend-mode: normal; }
+.blend-multiply, .bl-m { mix-blend-mode: multiply; }
+.blend-screen, .bl-s { mix-blend-mode: screen; }
+.blend-overlay, .bl-o { mix-blend-mode: overlay; }
+.blend-color, .bl-c { mix-blend-mode: color; }
+.blend-luminosity, .bl-lu { mix-blend-mode: luminosity; }
+/* =========================================================
+   BaseFrame – Transitions & Animations
+   ---------------------------------------------------------
+   Covers transitions, durations, delays, timing functions,
+   transforms, and reusable animation utilities.
+   ========================================================= */
+
+/* ---------- Transition Property ---------- */
+.transition-all, .tr-all { transition-property: all; }
+.transition-color, .tr-c { transition-property: color, background-color, border-color; }
+.transition-transform, .tr-t { transition-property: transform; }
+.transition-opacity, .tr-o { transition-property: opacity; }
+.transition-none, .tr-n { transition: none; }
+
+/* ---------- Transition Duration ---------- */
+.duration-75, .dur-75 { transition-duration: 75ms; }
+.duration-100, .dur-100 { transition-duration: 100ms; }
+.duration-200, .dur-200 { transition-duration: 200ms; }
+.duration-300, .dur-300 { transition-duration: 300ms; }
+.duration-500, .dur-500 { transition-duration: 500ms; }
+.duration-1000, .dur-1k { transition-duration: 1000ms; }
+
+/* ---------- Transition Delay ---------- */
+.delay-0, .del-0 { transition-delay: 0s; }
+.delay-100, .del-100 { transition-delay: 0.1s; }
+.delay-200, .del-200 { transition-delay: 0.2s; }
+.delay-500, .del-500 { transition-delay: 0.5s; }
+.delay-1000, .del-1k { transition-delay: 1s; }
+
+/* ---------- Timing Function ---------- */
+.ease-linear, .ease-l { transition-timing-function: linear; }
+.ease-in, .ease-i { transition-timing-function: ease-in; }
+.ease-out, .ease-o { transition-timing-function: ease-out; }
+.ease-in-out, .ease-io { transition-timing-function: ease-in-out; }
+.ease-smooth, .ease-s {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Transform Utilities ---------- */
+.scale-0, .sc-0 { transform: scale(0); }
+.scale-50, .sc-50 { transform: scale(0.5); }
+.scale-75, .sc-75 { transform: scale(0.75); }
+.scale-100, .sc-100 { transform: scale(1); }
+.scale-125, .sc-125 { transform: scale(1.25); }
+.scale-150, .sc-150 { transform: scale(1.5); }
+
+.rotate-0, .rt-0 { transform: rotate(0deg); }
+.rotate-45, .rt-45 { transform: rotate(45deg); }
+.rotate-90, .rt-90 { transform: rotate(90deg); }
+.rotate-180, .rt-180 { transform: rotate(180deg); }
+
+.translate-x-0, .tx-0 { transform: translateX(0); }
+.translate-x-50, .tx-50 { transform: translateX(50%); }
+.translate-x--50, .tx--50 { transform: translateX(-50%); }
+.translate-y-0, .ty-0 { transform: translateY(0); }
+.translate-y-50, .ty-50 { transform: translateY(50%); }
+.translate-y--50, .ty--50 { transform: translateY(-50%); }
+
+.skew-x-10, .skx-10 { transform: skewX(10deg); }
+.skew-y-10, .sky-10 { transform: skewY(10deg); }
+
+/* ---------- Hover/Focus Helpers ---------- */
+.hover-scale, .hv-sc:hover { transform: scale(1.05); transition: transform 0.2s ease-in-out; }
+.hover-rotate, .hv-rt:hover { transform: rotate(3deg); transition: transform 0.2s ease-in-out; }
+.hover-fade, .hv-fd:hover { opacity: 0.8; transition: opacity 0.3s ease; }
+
+/* ---------- Basic Animation Utilities ---------- */
+.animate-none, .ani-n { animation: none; }
+.animate-spin, .ani-spin { animation: spin 1s linear infinite; }
+.animate-ping, .ani-ping { animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
+.animate-pulse, .ani-pulse { animation: pulse 2s ease-in-out infinite; }
+.animate-bounce, .ani-bounce { animation: bounce 1.5s infinite; }
+.animate-fade-in, .ani-fadein { animation: fade-in 0.8s ease forwards; }
+.animate-fade-out, .ani-fadeout { animation: fade-out 0.8s ease forwards; }
+
+/* ---------- Keyframes ---------- */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50% { transform: translateY(-10px); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* ---------- Animation Duration ---------- */
+.anim-dur-500, .ad-500 { animation-duration: 0.5s; }
+.anim-dur-1s, .ad-1 { animation-duration: 1s; }
+.anim-dur-2s, .ad-2 { animation-duration: 2s; }
+.anim-dur-3s, .ad-3 { animation-duration: 3s; }
+
+/* ---------- Animation Delay ---------- */
+.anim-delay-0, .adel-0 { animation-delay: 0s; }
+.anim-delay-1, .adel-1 { animation-delay: 1s; }
+.anim-delay-2, .adel-2 { animation-delay: 2s; }
+
+/* ---------- Animation Direction ---------- */
+.anim-normal, .adn-n { animation-direction: normal; }
+.anim-reverse, .adn-r { animation-direction: reverse; }
+.anim-alt, .adn-a { animation-direction: alternate; }
+.anim-alt-rev, .adn-ar { animation-direction: alternate-reverse; }
+
+/* ---------- Animation Fill Mode ---------- */
+.fill-none, .fil-n { animation-fill-mode: none; }
+.fill-forwards, .fil-f { animation-fill-mode: forwards; }
+.fill-backwards, .fil-b { animation-fill-mode: backwards; }
+.fill-both, .fil-bt { animation-fill-mode: both; }
+
+/* ---------- Animation Iteration ---------- */
+.loop-1, .lp-1 { animation-iteration-count: 1; }
+.loop-infinite, .lp-inf { animation-iteration-count: infinite; }
+
+/* ---------- Preset Effects ---------- */
+.animate-slide-in, .ani-slidein {
+  animation: slide-in 0.8s ease forwards;
+}
+.animate-slide-up, .ani-slideup {
+  animation: slide-up 0.8s ease forwards;
+}
+.animate-zoom-in, .ani-zoomin {
+  animation: zoom-in 0.8s ease forwards;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes zoom-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* =========================================================
+   BaseFrame – Typography Utilities
+   ---------------------------------------------------------
+   Covers text alignment, decoration, transform, wrapping,
+   spacing, overflow, indentation, and white-space control.
+   Each has long (.text-*) and short (.txt-*) versions.
+   ========================================================= */
+
+/* ---------- Alignment ---------- */
+.text-left, .txt-l { text-align: left; }
+.text-center, .txt-c { text-align: center; }
+.text-right, .txt-r { text-align: right; }
+.text-justify, .txt-j { text-align: justify; }
+.text-start, .txt-s { text-align: start; }
+.text-end, .txt-e { text-align: end; }
+
+/* ---------- Vertical Alignment ---------- */
+.align-top, .aln-t { vertical-align: top; }
+.align-middle, .aln-m { vertical-align: middle; }
+.align-bottom, .aln-b { vertical-align: bottom; }
+.align-baseline, .aln-bl { vertical-align: baseline; }
+
+/* ---------- Text Decoration ---------- */
+.text-underline, .txt-u { text-decoration: underline; }
+.text-overline, .txt-o { text-decoration: overline; }
+.text-line-through, .txt-lt { text-decoration: line-through; }
+.text-none, .txt-n { text-decoration: none; }
+
+/* ---------- Text Transform ---------- */
+.text-uppercase, .txt-up { text-transform: uppercase; }
+.text-lowercase, .txt-low { text-transform: lowercase; }
+.text-capitalize, .txt-cap { text-transform: capitalize; }
+.text-normal, .txt-norm { text-transform: none; }
+
+/* ---------- Text Overflow ---------- */
+.text-clip, .txt-clip { text-overflow: clip; }
+.text-ellipsis, .txt-ell { text-overflow: ellipsis; }
+.text-wrap, .txt-wrap { white-space: normal; }
+.text-nowrap, .txt-nw { white-space: nowrap; }
+.text-pre, .txt-pre { white-space: pre; }
+.text-prewrap, .txt-pw { white-space: pre-wrap; }
+.text-preline, .txt-pl { white-space: pre-line; }
+
+/* ---------- Letter, Word, and Line Spacing ---------- */
+.letter-tight, .ltr-t { letter-spacing: -0.05em; }
+.letter-normal, .ltr-n { letter-spacing: normal; }
+.letter-wide, .ltr-w { letter-spacing: 0.05em; }
+.word-tight, .wrd-t { word-spacing: -0.1em; }
+.word-normal, .wrd-n { word-spacing: normal; }
+.word-wide, .wrd-w { word-spacing: 0.1em; }
+.line-tight, .ln-t { line-height: 1.1; }
+.line-normal, .ln-n { line-height: 1.5; }
+.line-loose, .ln-l { line-height: 2; }
+
+/* ---------- Text Indentation ---------- */
+.text-indent-sm, .txt-i-s { text-indent: 0.5rem; }
+.text-indent-md, .txt-i-m { text-indent: 1rem; }
+.text-indent-lg, .txt-i-l { text-indent: 2rem; }
+
+/* ---------- Text Shadow ---------- */
+.text-shadow-sm, .txt-sh-s { text-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+.text-shadow-md, .txt-sh-m { text-shadow: 0 2px 2px rgba(0,0,0,0.15); }
+.text-shadow-lg, .txt-sh-l { text-shadow: 0 3px 6px rgba(0,0,0,0.25); }
+.text-shadow-none, .txt-sh-n { text-shadow: none; }
+
+/* ---------- Text Orientation (for vertical writing) ---------- */
+.text-horizontal, .txt-h { writing-mode: horizontal-tb; }
+.text-vertical, .txt-v { writing-mode: vertical-rl; }
+
+/* ---------- Hyphenation ---------- */
+.text-hyphen-auto, .txt-ha { hyphens: auto; }
+.text-hyphen-none, .txt-hn { hyphens: none; }
+
+/* ---------- Direction ---------- */
+.text-ltr, .txt-ltr { direction: ltr; }
+.text-rtl, .txt-rtl { direction: rtl; }
+
+/* ---------- Word Breaks ---------- */
+.word-break-normal, .wb-n { word-break: normal; }
+.word-break-all, .wb-a { word-break: break-all; }
+.word-break-word, .wb-w { word-break: break-word; }
+.overflow-wrap, .ow-bw { overflow-wrap: break-word; }
+
+/* ---------- Highlight / Selection ---------- */
+.selection-none, .sel-n { user-select: none; }
+.selection-auto, .sel-a { user-select: auto; }
+.selection-text, .sel-t { user-select: text; }
+
+/* ---------- Quotes and Text Rendering ---------- */
+.text-render-auto, .txt-ra { text-rendering: auto; }
+.text-render-optimize, .txt-ro { text-rendering: optimizeLegibility; }
+.text-render-speed, .txt-rs { text-rendering: geometricPrecision; }
+/* =========================================================
+   BaseFrame – Visibility, Scroll & Resize
+   ---------------------------------------------------------
+   Controls display, visibility, overflow, scrolling, resizing,
+   and user interaction properties.
+   ========================================================= */
+
+/* ---------- Display ---------- */
+.d-none, .dn { display: none !important; }
+.d-block, .db { display: block; }
+.d-inline, .di { display: inline; }
+.d-inline-block, .dib { display: inline-block; }
+.d-flex, .df { display: flex; }
+.d-inline-flex, .dif { display: inline-flex; }
+.d-grid, .dg { display: grid; }
+.d-inline-grid, .dig { display: inline-grid; }
+.d-table, .dt { display: table; }
+.d-table-row, .dtr { display: table-row; }
+.d-table-cell, .dtc { display: table-cell; }
+.d-contents, .dct { display: contents; }
+.d-list, .dl { display: list-item; }
+
+/* ---------- Visibility ---------- */
+.visible, .vis { visibility: visible; }
+.invisible, .invis { visibility: hidden; }
+.collapse, .col { visibility: collapse; }
+
+/* ---------- Overflow ---------- */
+.overflow-auto, .ov-a { overflow: auto; }
+.overflow-hidden, .ov-h { overflow: hidden; }
+.overflow-visible, .ov-v { overflow: visible; }
+.overflow-scroll, .ov-s { overflow: scroll; }
+
+.overflow-x-auto, .ovx-a { overflow-x: auto; }
+.overflow-x-hidden, .ovx-h { overflow-x: hidden; }
+.overflow-y-auto, .ovy-a { overflow-y: auto; }
+.overflow-y-hidden, .ovy-h { overflow-y: hidden; }
+
+/* ---------- Scroll Behavior ---------- */
+.scroll-auto, .scr-a { scroll-behavior: auto; }
+.scroll-smooth, .scr-s { scroll-behavior: smooth; }
+
+.scroll-x, .scr-x { overflow-x: scroll; overflow-y: hidden; }
+.scroll-y, .scr-y { overflow-y: scroll; overflow-x: hidden; }
+.scroll-none, .scr-n { overflow: hidden; }
+
+/* ---------- Scroll Snap ---------- */
+.snap-none, .sn-n { scroll-snap-type: none; }
+.snap-x, .sn-x { scroll-snap-type: x mandatory; }
+.snap-y, .sn-y { scroll-snap-type: y mandatory; }
+.snap-both, .sn-b { scroll-snap-type: both mandatory; }
+.snap-center, .sn-c { scroll-snap-align: center; }
+.snap-start, .sn-s { scroll-snap-align: start; }
+.snap-end, .sn-e { scroll-snap-align: end; }
+
+/* ---------- Overscroll Behavior ---------- */
+.overscroll-auto, .ovscr-a { overscroll-behavior: auto; }
+.overscroll-contain, .ovscr-c { overscroll-behavior: contain; }
+.overscroll-none, .ovscr-n { overscroll-behavior: none; }
+
+/* ---------- Resize ---------- */
+.resize-none, .rs-n { resize: none; }
+.resize-both, .rs-b { resize: both; }
+.resize-x, .rs-x { resize: horizontal; }
+.resize-y, .rs-y { resize: vertical; }
+
+/* ---------- Pointer Events ---------- */
+.pointer-none, .pe-n { pointer-events: none; }
+.pointer-auto, .pe-a { pointer-events: auto; }
+.pointer-fill, .pe-f { pointer-events: fill; }
+
+/* ---------- Cursor ---------- */
+.cursor-auto, .cur-a { cursor: auto; }
+.cursor-pointer, .cur-p { cursor: pointer; }
+.cursor-text, .cur-t { cursor: text; }
+.cursor-move, .cur-m { cursor: move; }
+.cursor-grab, .cur-g { cursor: grab; }
+.cursor-not-allowed, .cur-na { cursor: not-allowed; }
+.cursor-wait, .cur-w { cursor: wait; }
+.cursor-crosshair, .cur-c { cursor: crosshair; }
+.cursor-none, .cur-n { cursor: none; }
+
+/* ---------- User Select ---------- */
+.select-none, .sel-n { user-select: none; }
+.select-text, .sel-t { user-select: text; }
+.select-all, .sel-a { user-select: all; }
+.select-auto, .sel-au { user-select: auto; }
+
+/* ---------- Appearance ---------- */
+.appearance-none, .app-n { appearance: none; }
+.appearance-auto, .app-a { appearance: auto; }
+
+/* ---------- Opacity ---------- */
+.opacity-0, .op-0 { opacity: 0; }
+.opacity-25, .op-25 { opacity: 0.25; }
+.opacity-50, .op-50 { opacity: 0.5; }
+.opacity-75, .op-75 { opacity: 0.75; }
+.opacity-100, .op-100 { opacity: 1; }
+
+/* ---------- Z-Index ---------- */
+.z-0, .z0 { z-index: 0; }
+.z-10, .z10 { z-index: 10; }
+.z-20, .z20 { z-index: 20; }
+.z-50, .z50 { z-index: 50; }
+.z-auto, .za { z-index: auto; }
+
+/* ---------- Backface & Perspective ---------- */
+.backface-visible, .bf-v { backface-visibility: visible; }
+.backface-hidden, .bf-h { backface-visibility: hidden; }
+.perspective-none, .pr-n { perspective: none; }
+.perspective-500, .pr-500 { perspective: 500px; }
+.perspective-1000, .pr-1k { perspective: 1000px; }
+
+/* ---------- Scrollbar Styling (Best Practice) ---------- */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--color-dark) 60%, transparent);
+  border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* ---------- Print / Media Utility Visibility ---------- */
+.print-hidden { display: none !important; }
+@media print {
+  .print-only { display: block !important; }
+  .screen-only { display: none !important; }
+}

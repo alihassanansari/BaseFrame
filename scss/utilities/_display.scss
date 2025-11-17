@@ -1,0 +1,19 @@
+// utilities/_display.scss
+
+@use "../framework/config" as cfg;
+
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-none { display: none; }
+
+/* responsive display shortcuts */
+@each $label, $bp in cfg.$breakpoints {
+  @if $bp == 0 or $bp == 0px {
+    .#{$label}\:d-none { display: none; }
+  } @else {
+    @media (min-width: $bp) {
+      .#{$label}\:d-none { display: none; }
+    }
+  }
+}

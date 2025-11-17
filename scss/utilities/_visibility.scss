@@ -1,0 +1,61 @@
+// utilities/_visibility.scss
+@use "../framework/config" as cfg;
+@use "../framework/helpers" as h;
+
+/// Basic visibility
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+/// Opacity scale (compact)
+.opacity-0 { opacity: 0; }
+.opacity-10 { opacity: 0.1; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/// Pointer events
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+/// Screen-reader helpers
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-only-focusable:focus, .sr-only-focusable:active {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+/// Responsive visibility helpers (prefix style)
+@each $label, $bp in cfg.$breakpoints {
+  @if $bp == 0 or $bp == 0px {
+    /* base aliases optional – omit to avoid duplication */
+  } @else {
+    @media (min-width: $bp) {
+      .#{$label}\:visible { visibility: visible; }
+      .#{$label}\:invisible { visibility: hidden; }
+
+      .#{$label}\:d-none { display: none !important; } /* complements display utilities */
+      .#{$label}\:opacity-0 { opacity: 0; }
+      .#{$label}\:opacity-100 { opacity: 1; }
+
+      .#{$label}\:pointer-events-none { pointer-events: none; }
+      .#{$label}\:pointer-events-auto { pointer-events: auto; }
+    }
+  }
+}

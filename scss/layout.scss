@@ -1,0 +1,335 @@
+@use "sass:math";
+
+@for $i from 0 through 12 {
+  .col-#{$i} {
+    $pct: math.div($i, 12) * 100%;
+    width: $pct;
+    flex-basis: $pct;
+    padding-right: 1%;
+    padding-left: 1%;
+  }
+
+  .no-gutter .col-#{$i} {
+    $pct: math.div($i, 12) * 100%;
+    width: $pct;
+    flex-basis: $pct;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@for $i from 0 through 24 {
+  .col-#{$i}s {
+    $pct: math.div($i, 24) * 100%;
+    width: $pct;
+    flex-basis: $pct;
+    padding-right: 1%;
+    padding-left: 1%;
+  }
+
+  .no-gutter .col-#{$i},
+  .no-gutter .col-#{$i}s {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@for $i from 0 through 100 {
+  $pct: $i * 1%;
+  .col-#{$i}p {
+    width: $pct;
+    flex-basis: $pct;
+  }
+
+  .w-#{$i} {
+    width: $pct;
+    flex-basis: $pct;
+  }
+
+  .h-#{$i} {
+    height: $pct;
+    flex-basis: $pct;
+  }
+
+  .wi-#{$i} {
+    width: $pct !important;
+    flex-basis: $pct !important;
+  }
+
+  .hi-#{$i} {
+    height: $pct !important;
+    flex-basis: $pct !important;
+  }
+}
+
+// Margin and Padding - px
+
+@for $i from 0 through 200 {
+
+// Margin Px
+
+  .m-#{$i}px {margin: #{$i}px;}
+  .mt-#{$i}px {margin-top: #{$i}px;}
+  .mb-#{$i}px {margin-bottom: #{$i}px;}
+  .ml-#{$i}px {margin-left: #{$i}px;}
+  .mr-#{$i}px {margin-right: #{$i}px;}
+
+  .mt--#{$i}px {margin-top: -#{$i}px;}
+  .mb--#{$i}px {margin-bottom: -#{$i}px;}
+  .ml--#{$i}px {margin-left: -#{$i}px;}
+  .mr--#{$i}px {margin-right: -#{$i}px;}
+
+  .my-#{$i}px {margin-top: #{$i}px; margin-bottom: #{$i}px}
+  .mx-#{$i}px {margin-left: #{$i}px; margin-right: #{$i}px}
+
+  .mi-#{$i}px {margin: #{$i}px !important;}
+  .mti-#{$i}px {margin-top: #{$i}px !important;}
+  .mbi-#{$i}px {margin-bottom: #{$i}px !important;}
+  .mli-#{$i}px {margin-left: #{$i}px !important;}
+  .mri-#{$i}px {margin-right: #{$i}px !important;}
+
+  .mti--#{$i}px {margin-top: -#{$i}px !important;}
+  .mbi--#{$i}px {margin-bottom: -#{$i}px !important;}
+  .mli--#{$i}px {margin-left: -#{$i}px !important;}
+  .mri--#{$i}px {margin-right: -#{$i}px !important;}
+
+  .myi-#{$i}px {margin-top: #{$i}px !important; margin-bottom: #{$i}px !important;}
+  .mxi-#{$i}px {margin-left: #{$i}px !important; margin-right: #{$i}px !important;}
+
+// Padding Px
+
+  .p-#{$i}px {padding: #{$i}px;}
+  .pt-#{$i}px {padding-top: #{$i}px;}
+  .pb-#{$i}px {padding-bottom: #{$i}px;}
+  .pl-#{$i}px {padding-left: #{$i}px;}
+  .pr-#{$i}px {padding-right: #{$i}px;}
+
+  .py-#{$i}px {padding-top: #{$i}px; padding-bottom: #{$i}px}
+  .px-#{$i}px {padding-left: #{$i}px; padding-right: #{$i}px}
+
+  .pi-#{$i}px {padding: #{$i}px !important;}
+  .pti-#{$i}px {padding-top: #{$i}px !important;}
+  .pbi-#{$i}px {padding-bottom: #{$i}px !important;}
+  .pli-#{$i}px {padding-left: #{$i}px !important;}
+  .pri-#{$i}px {padding-right: #{$i}px !important;}
+
+  .pyi-#{$i}px {padding-top: #{$i}px !important; padding-bottom: #{$i}px !important;}
+  .pxi-#{$i}px {padding-left: #{$i}px !important; padding-right: #{$i}px !important;}
+
+  tr.p-#{$i}px > td {padding: #{$i}px;}
+  tr.pt-#{$i}px > td {padding-top: #{$i}px;}
+  tr.pb-#{$i}px > td {padding-bottom: #{$i}px;}
+  tr.pl-#{$i}px > td {padding-left: #{$i}px;}
+  tr.pr-#{$i}px > td {padding-right: #{$i}px;}
+
+  tr.py-#{$i}px > td {padding-top: #{$i}px; padding-bottom: #{$i}px}
+  tr.px-#{$i}px > td {padding-left: #{$i}px; padding-right: #{$i}px}
+
+  tr.pi-#{$i}px > td {padding: #{$i}px !important;}
+  tr.pti-#{$i}px > td {padding-top: #{$i}px !important;}
+  tr.pbi-#{$i}px > td {padding-bottom: #{$i}px !important;}
+  tr.pli-#{$i}px > td {padding-left: #{$i}px !important;}
+  tr.pri-#{$i}px > td {padding-right: #{$i}px !important;}
+
+  tr.pyi-#{$i}px > td {padding-top: #{$i}px !important; padding-bottom: #{$i}px !important;}
+  tr.pxi-#{$i}px > td {padding-left: #{$i}px !important; padding-right: #{$i}px !important;}
+
+}
+
+@for $i from 0 through 100 {
+  $pct: $i * 1%;
+
+  // Margin Percentage
+  .m-#{$i}p { margin: $pct; }
+  .mt-#{$i}p { margin-top: $pct; }
+  .mb-#{$i}p { margin-bottom: $pct; }
+  .ml-#{$i}p { margin-left: $pct; }
+  .mr-#{$i}p { margin-right: $pct; }
+
+  .mt--#{$i}p { margin-top: -$pct; }
+  .mb--#{$i}p { margin-bottom: -$pct; }
+  .ml--#{$i}p { margin-left: -$pct; }
+  .mr--#{$i}p { margin-right: -$pct; }
+
+  .my-#{$i}p { margin-top: $pct; margin-bottom: $pct; }
+  .mx-#{$i}p { margin-left: $pct; margin-right: $pct; }
+
+  .mi-#{$i}p { margin: $pct !important; }
+  .mti-#{$i}p { margin-top: $pct !important; }
+  .mbi-#{$i}p { margin-bottom: $pct !important; }
+  .mli-#{$i}p { margin-left: $pct !important; }
+  .mri-#{$i}p { margin-right: $pct !important; }
+
+  .mti--#{$i}p { margin-top: -$pct !important; }
+  .mbi--#{$i}p { margin-bottom: -$pct !important; }
+  .mli--#{$i}p { margin-left: -$pct !important; }
+  .mri--#{$i}p { margin-right: -$pct !important; }
+
+  .myi-#{$i}p { margin-top: $pct !important; margin-bottom: $pct !important; }
+  .mxi-#{$i}p { margin-left: $pct !important; margin-right: $pct !important; }
+
+  // Padding Percentage
+  .p-#{$i}p { padding: $pct; }
+  .pt-#{$i}p { padding-top: $pct; }
+  .pb-#{$i}p { padding-bottom: $pct; }
+  .pl-#{$i}p { padding-left: $pct; }
+  .pr-#{$i}p { padding-right: $pct; }
+
+  .py-#{$i}p { padding-top: $pct; padding-bottom: $pct; }
+  .px-#{$i}p { padding-left: $pct; padding-right: $pct; }
+
+  .pi-#{$i}p { padding: $pct !important; }
+  .pti-#{$i}p { padding-top: $pct !important; }
+  .pbi-#{$i}p { padding-bottom: $pct !important; }
+  .pli-#{$i}p { padding-left: $pct !important; }
+  .pri-#{$i}p { padding-right: $pct !important; }
+
+  .pyi-#{$i}p { padding-top: $pct !important; padding-bottom: $pct !important; }
+  .pxi-#{$i}p { padding-left: $pct !important; padding-right: $pct !important; }
+
+  tr.p-#{$i}p > td { padding: $pct; }
+  tr.pt-#{$i}p > td { padding-top: $pct; }
+  tr.pb-#{$i}p > td { padding-bottom: $pct; }
+  tr.pl-#{$i}p > td { padding-left: $pct; }
+  tr.pr-#{$i}p > td { padding-right: $pct; }
+
+  tr.py-#{$i}p > td { padding-top: $pct; padding-bottom: $pct; }
+  tr.px-#{$i}p > td { padding-left: $pct; padding-right: $pct; }
+
+  tr.pi-#{$i}p > td { padding: $pct !important; }
+  tr.pti-#{$i}p > td { padding-top: $pct !important; }
+  tr.pbi-#{$i}p > td { padding-bottom: $pct !important; }
+  tr.pli-#{$i}p > td { padding-left: $pct !important; }
+  tr.pri-#{$i}p > td { padding-right: $pct !important; }
+
+  tr.pyi-#{$i}p > td { padding-top: $pct !important; padding-bottom: $pct !important; }
+  tr.pxi-#{$i}p > td { padding-left: $pct !important; padding-right: $pct !important; }
+}
+
+// Margin and Padding - rem
+
+@for $i from 0 through 20 {
+
+  // Margin Rem
+
+  .m-#{$i} {margin: #{$i}rem;}
+  .mt-#{$i} {margin-top: #{$i}rem;}
+  .mb-#{$i} {margin-bottom: #{$i}rem;}
+  .ml-#{$i} {margin-left: #{$i}rem;}
+  .mr-#{$i} {margin-right: #{$i}rem;}
+
+  .mt--#{$i} {margin-top: -#{$i}rem;}
+  .mb--#{$i} {margin-bottom: -#{$i}rem;}
+  .ml--#{$i} {margin-left: -#{$i}rem;}
+  .mr--#{$i} {margin-right: -#{$i}rem;}
+
+  .my-#{$i} {margin-top: #{$i}rem; margin-bottom: #{$i}rem}
+  .mx-#{$i} {margin-left: #{$i}rem; margin-right: #{$i}rem}
+
+  .mi-#{$i} {margin: #{$i}rem !important;}
+  .mti-#{$i} {margin-top: #{$i}rem !important;}
+  .mbi-#{$i} {margin-bottom: #{$i}rem !important;}
+  .mli-#{$i} {margin-left: #{$i}rem !important;}
+  .mri-#{$i} {margin-right: #{$i}rem !important;}
+
+  .mti--#{$i} {margin-top: -#{$i}rem !important;}
+  .mbi--#{$i} {margin-bottom: -#{$i}rem !important;}
+  .mli--#{$i} {margin-left: -#{$i}rem !important;}
+  .mri--#{$i} {margin-right: -#{$i}rem !important;}
+
+  .myi-#{$i} {margin-top: #{$i}rem !important; margin-bottom: #{$i}rem !important}
+  .mxi-#{$i} {margin-left: #{$i}rem !important; margin-right: #{$i}rem !important}
+
+  // Padding Rem
+
+  .p-#{$i} {padding: #{$i}rem;}
+  .pt-#{$i} {padding-top: #{$i}rem;}
+  .pb-#{$i} {padding-bottom: #{$i}rem;}
+  .pl-#{$i} {padding-left: #{$i}rem;}
+  .pr-#{$i} {padding-right: #{$i}rem;}
+
+  .py-#{$i} {padding-top: #{$i}rem; padding-bottom: #{$i}rem}
+  .px-#{$i} {padding-left: #{$i}rem; padding-right: #{$i}rem}
+
+  .pt--#{$i} {padding-top: -#{$i}rem;}
+  .pb--#{$i} {padding-bottom: -#{$i}rem;}
+  .pl--#{$i} {padding-left: -#{$i}rem;}
+  .pr--#{$i} {padding-right: -#{$i}rem;}
+
+  .pi-#{$i} {padding: #{$i}rem !important;}
+  .pti-#{$i} {padding-top: #{$i}rem !important;}
+  .pbi-#{$i} {padding-bottom: #{$i}rem !important;}
+  .pli-#{$i} {padding-left: #{$i}rem !important;}
+  .pri-#{$i} {padding-right: #{$i}rem !important;}
+
+  .pti--#{$i} {padding-top: -#{$i}rem !important;}
+  .pbi--#{$i} {padding-bottom: -#{$i}rem !important;}
+  .pli--#{$i} {padding-left: -#{$i}rem !important;}
+  .pri--#{$i} {padding-right: -#{$i}rem !important;}
+
+  .pyi-#{$i} {padding-top: #{$i}rem !important; padding-bottom: #{$i}rem !important}
+  .pxi-#{$i} {padding-left: #{$i}rem !important; padding-right: #{$i}rem !important}
+
+}
+
+// Position Width Height Px
+@for $i from 0 through 500 {
+  .w-#{$i}px {width: #{$i}px;}
+  .h-#{$i}px {height: #{$i}px;}
+
+  .wi-#{$i}px {width: #{$i}px !important;}
+  .hi-#{$i}px {height: #{$i}px !important;}
+
+  .w-max-#{$i}px {max-width: #{$i}px;}
+  .w-min-#{$i}px {min-width: #{$i}px;}
+
+  .t-#{$i}px {top: #{$i}px;}
+  .l-#{$i}px {left: #{$i}px;}
+  .r-#{$i}px {right: #{$i}px;}
+  .b-#{$i}px {bottom: #{$i}px;}
+
+  .ti-#{$i}px {top: #{$i}px !important;}
+  .li-#{$i}px {left: #{$i}px !important;}
+  .ri-#{$i}px {right: #{$i}px !important;}
+  .bi-#{$i}px {bottom: #{$i}px !important;}
+}
+
+// Gap for Width in px for Flexbox
+@for $i from 0 through 20 {
+    .gap-#{$i}px {gap: #{$i}px;}
+}
+
+// Position Width Height Rem
+@for $i from 0 through 20 {
+  .w-#{$i}rem {width: #{$i}rem;}
+  .h-#{$i}rem {height: #{$i}rem;}
+
+  .t-#{$i}rem {top: #{$i}rem;}
+  .l-#{$i}rem {bottom: #{$i}rem;}
+  .r-#{$i}rem {left: #{$i}rem;}
+  .b-#{$i}rem {right: #{$i}rem;}
+
+  .wi-#{$i}rem {width: #{$i}rem !important;}
+  .hi-#{$i}rem {height: #{$i}rem !important;}
+
+  .ti-#{$i}rem {top: #{$i}rem !important;}
+  .li-#{$i}rem {bottom: #{$i}rem !important;}
+  .ri-#{$i}rem {left: #{$i}rem !important;}
+  .bi-#{$i}rem {right: #{$i}rem !important;}
+}
+
+// Font Size and Line height Px
+@for $i from 0 through 100 {
+  .fs-#{$i}px, .font-#{$i}px {font-size: #{$i}px;}
+  .lh-#{$i}px {line-height: #{$i}px;}
+}
+
+// Font Size and Line height Rem
+@for $i from 0 through 20 {
+    .fs-#{$i}rem, .font-#{$i}rem {font-size: #{$i}rem;}
+    .lh-#{$i}rem {line-height: #{$i}rem;}
+}
+// Border Size and radius height Px
+@for $i from 0 through 100 {
+    .br-#{$i}px {border-radius: #{$i}px;}
+}

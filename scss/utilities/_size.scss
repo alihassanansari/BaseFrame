@@ -1,0 +1,31 @@
+// utilities/_size.scss
+@use "sass:math";
+@use "sass:meta";
+
+@use "../framework/config" as cfg;
+@use "../framework/helpers" as h;
+
+/// percent widths from size-percent-steps
+@each $step in cfg.$size-percent-steps {
+  // use helper to produce a safe string token
+  $tok: h.tokenize($step);
+  $p: if(meta.type-of($step) == "number", $step * 1%, $step);
+
+  .w-#{$tok}p { width: #{$p}; min-width: 0; }
+  .h-#{$tok}p { height: #{$p}; }
+  .wi-#{$tok}p { width: #{$p} !important; }
+  .hi-#{$tok}p { height: #{$p} !important; }
+}
+
+/* pixel/rem sizing (compact limited set) */
+@each $n, $val in (0:0, 1:0.25rem, 2:0.5rem, 4:1rem, 8:2rem, 16:4rem) {
+  .w-#{$n}rem { width: #{$val}; }
+  .h-#{$n}rem { height: #{$val}; }
+  .wi-#{$n}rem { width: #{$val} !important; }
+  .hi-#{$n}rem { height: #{$val} !important; }
+}
+
+/* max/min helpers (small set) */
+.w-max-100p { max-width: 100%; }
+.w-max-75p { max-width: 75%; }
+.w-min-0 { min-width: 0; }

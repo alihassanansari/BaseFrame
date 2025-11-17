@@ -7,20 +7,38 @@
   "keywords": [
     "css",
     "framework",
+    "utility",
     "utility-first",
     "baseframe",
-    "modular-css"
+    "modular-css",
+    "postcss",
+    "cdn"
+  ],
+  "files": [
+    "baseframe.css",
+    "baseframe.min.css",
+    "LICENSE",
+    "README.md"
   ],
   "author": "Ali Hassan",
   "license": "MIT",
   "scripts": {
-    "build": "postcss baseframe.css -o baseframe.min.css --env production",
-    "watch": "postcss baseframe.css -o baseframe.min.css --watch"
+    "build": "sass --no-source-map scss/_index.scss:css/layout.css --style=expanded && cat ./css/framework/*.css ./css/modules/*.css > baseframe.css && stylelint baseframe.css --allow-empty-input || true",
+    "watch": "sass --watch scss/_index.scss:css/layout.css --style=expanded & chokidar \"css/framework/*.css\" \"css/modules/*.css\" -c \"cat ./css/framework/*.css ./css/modules/*.css > baseframe.css\"",
+    "prod": "sass --no-source-map scss/_index.scss:css/layout.css --style=compressed && cat ./css/framework/*.css ./css/modules/*.css > baseframe.css && postcss baseframe.css -o baseframe.min.css --env production --no-map",
+    "publish:patch": "npm run build && npm version patch && npm publish --access public"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "cssnano": "^6.1.2",
-    "postcss": "^8.4.47",
-    "postcss-cli": "^10.1.0"
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.93.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1"
+  },
+  "dependencies": {
+    "@parcel/css": "^1.14.0",
+    "lightningcss": "^1.30.2",
+    "postcss-lightningcss": "^1.0.2"
   }
 }
